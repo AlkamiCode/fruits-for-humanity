@@ -1,16 +1,20 @@
 .top-bar {
-  background-color: grey;
+  background-color: white;
 }
 
-.top-bar .title-area .name h1 a {
+.top-bar .left .name h1 a {
   color: black;
   /*transform: rotate(-7deg);*/
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
-  background-color: grey;
+  background-color: white;
 }
 
 .top-bar-section ul li > a {
   color: black;
+}
+
+.fi-shopping-cart {
+  font-size: 25px;
 }

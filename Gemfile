@@ -48,3 +48,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 end
 
+group :assets do
+  gem 'foundation-icons-sass-rails'
+end
+
