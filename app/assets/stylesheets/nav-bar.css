@@ -8,6 +8,11 @@
   font-weight: bold;
 }
 
+li.company.name {
+  transform: rotate(-7deg);
+  font-family: monospace;
+}
+
 .top-bar .left .compay .name {
   color: orange;
 }
