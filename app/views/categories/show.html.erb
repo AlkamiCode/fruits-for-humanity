@@ -1,8 +1,16 @@
 <div class="row">
-<% @category_items.each do |item| %>
+  <% @category_items.each do |item| %>
     <div class="small-3 columns">
       <img src="http://placehold.it/400x300&text=[img]"/>
-      <%= item.title %>
+        <a href="" data-reveal-id="myModal"><%= item.title %></a>
     </div>
-<% end %>
+
+    <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+      <h2 id="modalTitle"><%= item.title %></h2>
+        <p class="lead"><%= item.description %></p>
+        <p><%= item.price %></p>
+          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+          <%= button_to "Add To Cart" %>
+    </div>
+  <% end %>
 </div>
