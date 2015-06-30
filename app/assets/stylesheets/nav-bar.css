@@ -25,13 +25,3 @@ li.company.name {
   font-size: 25px;
   margin-right: 50%;
 }
-
-a {
-  color: black;
-  line-height: inherit;
-  text-decoration: none;
-}
-
-a:hover, a:focus {
-  color: orange;
-}

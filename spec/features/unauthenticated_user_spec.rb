@@ -10,7 +10,7 @@ RSpec.feature 'the unauthenticated user' do
     visit root_path
 
     expect(current_path).to eq(root_path)
-# save_and_open_page
+
     click_link(category.name)
 
     click_link(item.title)

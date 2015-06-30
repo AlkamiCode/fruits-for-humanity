@@ -1,0 +1,9 @@
+a {
+  color: black;
+  line-height: inherit;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: orange;
+}

@@ -1,11 +1,43 @@
-<div class="small-12 columns introduction">
-<!-- <img src="http://placehold.it/1000x400&text=[ img 1 ]"/> -->
+<!-- <div class="small-12 columns introduction">
+<img src="http://placehold.it/1000x400&text=[ img 1 ]"/>
   <div class="small-3 small-centered columns">Nutrition For Those That Need It Most</div>
+</div> -->
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-12 hide-for-small">
+        <div id="featured" data-orbit>
+          <img src="http://placehold.it/1200x500&text=Slide Image 1" alt="slide image">
+          <img src="http://placehold.it/1200x500&text=Slide Image 2" alt="slide image">
+          <img src="http://placehold.it/1200x500&text=Slide Image 3" alt="slide image">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<% @categories.each do |category| %>
-  <div class="small-4 columns category_links">
-    <%= link_to category.name, category_path(category.id) %>
+<div class="row">
+  <div class="large-12 columns show-for-small">
+    <img src="http://placehold.it/1200x700&text=Mobile Header">
   </div>
-<% end %>
+</div>
 
+<div class="row">
+  <% @categories.each do |category| %>
+    <div class="small-4 columns category_links">
+      <img src="http://placehold.it/400x300&text=[img]"/>
+      <%= link_to category.name, category_path(category.id) %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  document.write('<script src=js/vendor/' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+</script>
