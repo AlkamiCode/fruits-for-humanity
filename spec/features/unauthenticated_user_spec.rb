@@ -5,12 +5,12 @@ RSpec.feature 'the unauthenticated user' do
   let!(:item)     { Item.create!(title: "Apricot", description: "it's orange", price: 2.00) }
 
   scenario "can add an item with a category to its cart" do
-    item.categories = category
+    CategoryItem.create(item_id: item.id, category_id: category.id)
 
     visit root_path
 
-    expect(current_path).to eq(categories_path)
-
+    expect(current_path).to eq(root_path)
+# save_and_open_page
     click_link(category.name)
 
     click_link(item.title)

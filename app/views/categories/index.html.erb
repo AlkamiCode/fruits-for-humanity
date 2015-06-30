@@ -1,13 +1,11 @@
 <div class="small-12 columns introduction">
+<!-- <img src="http://placehold.it/1000x400&text=[ img 1 ]"/> -->
   <div class="small-3 small-centered columns">Nutrition For Those That Need It Most</div>
 </div>
 
-<div class="small-4 columns">
-  <input type="text" placeholder="Fruits">
-</div>
-<div class="small-4 columns">
-  <input type="text" placeholder="Vegitables">
-</div>
-<div class="small-4 columns">
-  <input type="text" placeholder="Mix">
-</div>
+<% @categories.each do |category| %>
+  <div class="small-4 columns category_links">
+    <%= link_to category.name, category_path(category.id) %>
+  </div>
+<% end %>
+
