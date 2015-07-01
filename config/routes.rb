@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :cart_items, only: [:create]
 
+  get '/cart', to: 'carts#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

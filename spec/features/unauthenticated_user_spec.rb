@@ -13,8 +13,6 @@ RSpec.feature 'the unauthenticated user' do
 
     click_link(category.name)
 
-    click_link(item.title)
-
     click_button("Add To Cart")
 
     click_link("Cart")
