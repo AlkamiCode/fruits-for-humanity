@@ -15,11 +15,14 @@ RSpec.feature 'the unauthenticated user' do
 
     click_button("Add To Cart")
 
-    click_link("Cart")
+    page.find('.cart > a').click
 
     expect(current_path).to eq(cart_path)
 
     expect(page).to have_content(category.items.first.title)
+    expect(page).to have_content(category.items.first.description)
+    expect(page).to have_content("1") #Quantity
+
     expect(page).to have_content(item.categories.first.name)
   end
 
