@@ -4,7 +4,10 @@
     <div class="small-3 columns">
       <img src="http://placehold.it/400x300&text=[img]"/>
         <a href="" data-reveal-id="myModal"><%= item.title %></a>
-          <%= button_to "Add To Cart", cart_items_path(item_id: item.id), class: "button round tiny" %>
+          <%= button_to "Add To Cart", cart_items_path(item_id: item.id), class: "button tiny" %>
+          <label class="quantity-input">
+            <input type="number" value="1" name="quantity">
+          </label>
     </div>
 
     <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">

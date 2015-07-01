@@ -6,6 +6,7 @@
       <th>Description</th>
       <th width="100">Quantity</th>
       <th width="100">Price</th>
+      <th width="100">Total Price</th>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +15,13 @@
         <td><%= item.categories.map(&:name).join %></td>
         <td><%= item.title %></td>
         <td><%= item.description %></td>
-        <td><%= quantity %></td>
+        <td>
+        <label class="quantity-input">
+          <input type="number" value="<%= quantity %>" name="quantity">
+        </label>
+        </td>
         <td><%= item.price %></td>
+        <td> Total Price </td>
       </tr>
     <% end %>
   </tbody>

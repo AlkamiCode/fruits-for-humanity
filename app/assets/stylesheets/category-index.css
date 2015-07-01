@@ -6,3 +6,8 @@
   width: 50%;
   font-family: monospace;
 }*/
+
+.quantity-input>input {
+  display: inline-block;
+  width: 50px;
+}
