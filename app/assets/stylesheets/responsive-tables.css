@@ -14,7 +14,10 @@
    Shared Styles
 ----------------------------------------- */
 
-table th { font-weight: bold; }
+table th {
+	font-weight: bold;
+	background-color: lightyellow;
+}
 table td, table th { padding: 9px 10px; text-align: left; }
 
 table {

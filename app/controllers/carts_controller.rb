@@ -5,4 +5,9 @@ class CartsController < ApplicationController
       @items[Item.find(item_id.to_i)] = quantity
     end
   end
+
+  def delete
+    session[:cart].clear
+    redirect_to :back
+  end
 end
