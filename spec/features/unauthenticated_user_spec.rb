@@ -40,7 +40,15 @@ RSpec.feature 'the unauthenticated user' do
     expect(page).to_not have_content(item.title)
   end
 
-  scenario "can increment or decrement item quantity before adding to cart" do
+  scenario "can add multiple quantities on an item to a cart" do
+    visit category_path(category.id)
+
+    fill_in 'quantity', with: '5'
+
+save_and_open_page
+    click_button("Add To Cart")
+
+    expect(page).to have_content('5')
   end
 
   scenario "can increment or decrement item quantity before checking out" do
