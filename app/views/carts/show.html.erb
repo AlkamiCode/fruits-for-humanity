@@ -4,7 +4,7 @@
       <th width="150">Category</th>
       <th width="150">Item</th>
       <th>Description</th>
-      <th width="100">Quantity</th>
+      <th width="200">Quantity</th>
       <th width="100">Price</th>
       <th width="100">Total Price</th>
     </tr>
@@ -15,15 +15,23 @@
         <td><%= item.categories.map(&:name).join %></td>
         <td><%= item.title %></td>
         <td><%= item.description %></td>
+
         <td>
-        <label class="quantity-input">
-          <input type="number" value="<%= quantity %>" name="quantity">
-        </label>
+        <form action="/cart/update" method="put" data-remote="true">
+          <label class="quantity-input">
+            <input name='_method' type='hidden' value='put'>
+            <input type="number" name="quantity" value="<%= quantity %>" min="0" max="20">
+            <input name='item_id' type='hidden' value='<%= item.id %>'>
+            <input type="submit" value="Update" class="update button tiny radius">
+          </label>
+        </form>
         </td>
+
         <td><%= item.price %></td>
         <td> Total Price </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<a href="/cart/destroy" class="button alert tiny">Clear Cart</a>
+<a href="/cart/destroy" method="delete" class="button alert tiny radius">Clear Cart</a>
+
