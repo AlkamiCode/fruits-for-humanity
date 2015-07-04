@@ -1,6 +1,6 @@
 Fruits For Humanity is a web-application that will allow people to provide nutritous foods like fruits and vegitables to people who can't afford it and need it most.
 
-* Ruby version 2.1.5
+* ruby 2.1.5
 
 * System dependencies
 
