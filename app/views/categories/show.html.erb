@@ -5,13 +5,11 @@
       <img src="http://placehold.it/400x300&text=[img]"/>
         <a href="" data-reveal-id="myModal"><%= item.title %></a>
 
-        <form action="/cart_items" method="post">
-          <label class="quantity-input">
-            <input type="number" name="quantity" value="1" min="1" max="10" id="quantity">
-            <input type="hidden" name="item_id"  value="<%= item.id %>">
-            <input type="submit" value="Add To Cart"  class="button tiny">
-          </label>
-        </form>
+        <%= form_tag cart_items_path, method: :post do %>
+          <%= select_tag :quantity, options_for_select(1..10) %>
+          <%= hidden_field_tag :item_id, item.id %>
+          <%= submit_tag "Add To Cart", class: "button tiny" %>
+        <% end %>
     </div>
 
     <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">

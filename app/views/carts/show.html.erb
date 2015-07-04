@@ -17,7 +17,7 @@
         <td><%= item.description %></td>
         <td>
         <%= form_tag cart_update_path, method: :put do %>
-          <%= select_tag :quantity, options_for_select((0..20), quantity) %>
+          <%= select_tag :quantity, options_for_select((0..10), quantity) %>
           <%= hidden_field_tag :item_id, item.id %>
           <%= submit_tag "Update", class: "update" %>
         <% end %>
