@@ -23,7 +23,7 @@ class Cart
     if initial_quantity > new_quantity
       difference = new_quantity - initial_quantity
       self.add_item(item_id, difference)
-    elsif initial_quantity < new_quantity
+    else initial_quantity < new_quantity
       difference = new_quantity - initial_quantity
       self.add_item(item_id, difference)
     end

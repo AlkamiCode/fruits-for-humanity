@@ -48,11 +48,10 @@ RSpec.feature 'the unauthenticated user' do
     click_button("Add To Cart")
 
     expect(page).to have_content('5')
-    expect(page).to_not have_content('1')
 
     visit cart_path
+
     expect(page).to have_content('5')
-    expect(page).to_not have_content('1')
   end
 
   scenario "can update item quantity before checking out" do
@@ -66,11 +65,10 @@ RSpec.feature 'the unauthenticated user' do
 
     expect(page).to have_content('5')
 
-    fill_in 'quantity', with: '3'
+    select '3', :from => 'quantity'
 
     page.find('.update').click
 
-    expect(page).to_not have_content('5')
     expect(page).to have_content('3')
   end
 
