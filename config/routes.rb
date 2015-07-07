@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "categories#index"
   resources :categories, only: [:show]
-  resources :cart_items, only: [:create]
+  resources :cart_items, except: [:show, :update, :edit, :new]
 
   get    "/cart", to: "carts#show"
   delete "/cart/destroy", to: "carts#delete"

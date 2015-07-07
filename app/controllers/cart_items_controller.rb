@@ -10,4 +10,9 @@ class CartItemsController < ApplicationController
     flash[:notice] = "You now have #{pluralize(@cart.count_of(item.id), item.title)}."
     redirect_to :back
   end
+
+  def destroy
+    session[:cart].delete(params[:id])
+    redirect_to :back
+  end
 end

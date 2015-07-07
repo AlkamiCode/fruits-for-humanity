@@ -21,6 +21,7 @@
           <%= hidden_field_tag :item_id, item.id %>
           <%= submit_tag "Update", class: "update" %>
         <% end %>
+        <%= button_to "Delete", cart_item_path(item.id), method: :delete %>
         </td>
         <td><%= item.price %></td>
         <td> Total Price </td>
