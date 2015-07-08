@@ -19,12 +19,23 @@ table th {
 	background-color: lightyellow;
 	border-top-right-radius: 20px;
 }
-table td, table th { padding: 9px 10px; text-align: left; }
+table td, table th {
+	padding: 9px 10px;
+	text-align: left;
+	border: 1px solid #999;
+}
 
 table {
 	background-color: lightgrey;
 	margin-top: 40px;
+	border-top-right-radius: 20px;
 }
+
+#bumcell {
+	background-color: white;
+	border: none;
+}
+
 
 /* Mobile */
 @media only screen and (max-width: 767px) {

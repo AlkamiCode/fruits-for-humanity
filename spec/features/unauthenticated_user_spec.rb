@@ -88,7 +88,18 @@ RSpec.feature "the unauthenticated user" do
     expect(page).to_not have_content(item.title)
   end
 
-  scenario "cannot checkout" do
+  scenario "can calculate total cost per item" do
+    visit category_path(category.id)
 
+    select "6", from: "quantity"
+
+    click_button("Add To Cart")
+
+    visit cart_path
+
+    expect(page).to have_content(12.0)
+  end
+
+  scenario "cannot checkout" do
   end
 end
