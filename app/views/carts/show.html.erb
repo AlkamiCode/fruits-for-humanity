@@ -23,12 +23,12 @@
         <% end %>
         <%= button_to "Delete", cart_item_path(item.id), method: :delete %>
         </td>
-        <td><%= item.price %></td>
-        <td><%= item.price * quantity %></td>
+        <td>&#36;<%= item.price %></td>
+        <td>&#36;<%= item.price * quantity %></td>
       </tr>
     <% end %>
     <td id="bumcell" colspan="5"></td>
-    <td class="price">Price</td>
+    <td class="price">&#36;<%= @total_price %></td>
   </tbody>
 </table>
 
