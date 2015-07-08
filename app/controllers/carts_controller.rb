@@ -1,14 +1,11 @@
 class CartsController < ApplicationController
   def show
     @items = {}
-    session[:cart].each do |item_id, quantity|
+    @cart.contents.each do |item_id, quantity|
       @items[Item.find(item_id.to_i)] = quantity
     end
 
-    @total_price = 0
-    @items.each do |item, quantity|
-      @total_price += (item.price * quantity)
-    end
+    @total_price = @cart.total_items_price(@items)
   end
 
   def delete
