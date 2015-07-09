@@ -13,19 +13,16 @@
   </head>
 
   <body>
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="left">
-      <li class="company name">
-        <a href="/">Fruits 4 Humanity</a>
-      <!-- <h1><img src="http://placehold.it/400x100&text=Logo"/></h1> -->
-      </li>
-    </ul>
-    <ul class="right">
-      <li class="cart">
-        <a href="/cart"><%= @cart.count_all %><i class="fi-shopping-cart"></i></a>
-      </li>
-    </ul>
-  </nav>
+        <div class="row">
+        <div class="large-3 columns">
+          <h1><img src="http://placehold.it/400x100&text=Logo"></h1>
+        </div>
+        <div class="large-9 columns">
+          <ul class="button-group right">
+            <li><a href="/cart" class="button tiny radius cart"><i class="fi-shopping-cart"></i></a></li>
+          </ul>
+        </div>
+      </div>
 
   <%= yield %>
 

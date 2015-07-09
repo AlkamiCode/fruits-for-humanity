@@ -1,26 +1,3 @@
-.top-bar {
-  background: white;
-  /*border: 1px solid black;*/
-}
-
-.top-bar .name {
-  padding-top: 15px;
-  font-weight: bold;
-}
-
-li.company.name {
-  transform: rotate(-7deg);
-  font-family: monospace;
-}
-
-.top-bar .left .compay .name {
-  color: orange;
-}
-
-.top-bar .cart {
-  padding-top: 10px;
-}
-
 .fi-shopping-cart {
   font-size: 25px;
   margin-right: 50%;

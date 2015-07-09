@@ -29,6 +29,9 @@ table {
 	background-color: lightgrey;
 	margin-top: 40px;
 	border-top-right-radius: 20px;
+	margin-left: 200px;
+  margin-right: 200px;
+  width: 70%;
 }
 
 #bumcell {
