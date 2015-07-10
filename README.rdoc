@@ -1,4 +1,4 @@
-Fruits For Humanity is a web-application that will allow people to provide nutritous foods like fruits and vegitables to people who can't afford it and need it most.
+Fruits For Humanity is a web-application that will allow people to provide nutritous foods like fruits and vegitables to those that can't afford it.
 
 * ruby 2.1.5
 
