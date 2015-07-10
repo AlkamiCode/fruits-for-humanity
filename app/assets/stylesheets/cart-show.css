@@ -1,12 +1,13 @@
 .fi-refresh {
   font-size: 25px;
   color: black;
+  margin-left: 10px;
 }
 
 .fi-trash {
   font-size: 25px;
   display: inline-block;
-  margin-left: 25px;
+  margin-left: 10px;
 }
 
 button, .button {
