@@ -1,20 +1,21 @@
 require "rails_helper"
 
 RSpec.feature "the unauthenticated user" do
-  let!(:category) { Category.create!(name: "Fruit") }
-  let!(:item)     { Item.create!(title: "Apricot", description: "it's orange", price: 2.00) }
-  let!(:category_item) { CategoryItem.create(item_id: item.id, category_id: category.id) }
+  attr_accessor :item, :category
 
-  let!(:category1) { Category.create!(name: "MonkeyBiz") }
-  let!(:item1)     { Item.create!(title: "Banana", description: "it's mooshy", price: 3.50) }
-  let!(:category_item1) { CategoryItem.create(item_id: item1.id, category_id: category1.id) }
+  before(:each) do
+    @item = Item.new(title: "Apricot", description: "it's orange", price: 2.00)
+    @category = item.categories.new(name: "Fruit")
+    category.save!
+    item.save!
+  end
 
   scenario "can add an item with a category to its cart" do
     visit root_path
 
     expect(current_path).to eq(root_path)
 
-    click_link(category.name)
+    click_link(item.categories.first.name)
 
     click_button("Add To Cart")
 
@@ -105,6 +106,11 @@ RSpec.feature "the unauthenticated user" do
   end
 
   scenario "can calculate total cost of all items in cart" do
+    item1 = Item.new(title: "Broccoli", description: "Tasts like shit raw", price: 3.50)
+    category1 = item1.categories.new(name: "Vegitables")
+    category1.save!
+    item1.save!
+
     visit category_path(category.id)
     select "3", from: "quantity"
     click_button("Add To Cart")
