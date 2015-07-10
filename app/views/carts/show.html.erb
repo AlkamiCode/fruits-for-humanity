@@ -19,15 +19,22 @@
         <%= form_tag cart_update_path, method: :put do %>
           <%= select_tag :quantity, options_for_select((0..10), quantity) %>
           <%= hidden_field_tag :item_id, item.id %>
-          <%= submit_tag "Update", class: "update" %>
+
+          <%= button_tag(type: "submit", title: "Update", name: "update") do %>
+            <i class="fi-refresh"></i>
+          <% end %>
+
+        <%= link_to '<i class="fi-trash"></i>'.html_safe, cart_item_path(item.id), method: :delete, title: "Delete" %>
         <% end %>
-        <%= button_to "Delete", cart_item_path(item.id), method: :delete %>
         </td>
+
         <td>&#36;<%= item.price %></td>
         <td>&#36;<%= item.price * quantity %></td>
       </tr>
     <% end %>
-    <td id="bumcell" colspan="3"></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td colspan="1"><%= button_to "Clear Cart", cart_destroy_path, method: :delete %></td>
     <td colspan="1"></td>
     <td class="price">&#36;<%= @total_price %></td>

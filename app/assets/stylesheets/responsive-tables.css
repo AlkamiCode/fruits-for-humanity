@@ -31,16 +31,11 @@ table {
 	margin-top: 40px;
 	border-top-right-radius: 20px;
 	border-top-left-radius: 20px;
-	margin-left: 200px;
-  margin-right: 200px;
-  width: 70%;
+	margin-top: 100px;
+	margin-left:auto;
+  margin-right:auto;
+  
 }
-
-#bumcell {
-	background-color: white;
-	border: none;
-}
-
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
@@ -61,6 +56,5 @@ table {
 
 	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
 	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
-
 
 }

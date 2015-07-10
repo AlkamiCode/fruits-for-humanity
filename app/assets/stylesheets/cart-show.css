@@ -1,0 +1,15 @@
+.fi-refresh {
+  font-size: 25px;
+  color: black;
+}
+
+.fi-trash {
+  font-size: 25px;
+  display: inline-block;
+  margin-left: 25px;
+}
+
+button, .button {
+  padding: initial;
+  background-color: lightgrey;
+}

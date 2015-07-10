@@ -72,7 +72,7 @@ RSpec.feature "the unauthenticated user" do
 
     select "3", from: "quantity"
 
-    page.find(".update").click
+    click_button("Update")
 
     expect(page).to have_content("3")
   end
@@ -88,7 +88,7 @@ RSpec.feature "the unauthenticated user" do
 
     expect(page).to have_content(item.title)
 
-    click_button("Delete")
+    click_link("Delete")
 
     expect(page).to_not have_content(item.title)
   end
