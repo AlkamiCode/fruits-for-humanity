@@ -126,7 +126,11 @@ RSpec.feature "the unauthenticated user" do
     expect(page).to have_content(20.0)
   end
 
-  scenario "a user can be registered" do
+  scenario "after user registers items are still in cart" do
+    visit category_path(category.id)
+    select "4", from: "quantity"
+    click_button("Add To Cart")
+
     visit new_user_path
 
     expect do
@@ -137,6 +141,10 @@ RSpec.feature "the unauthenticated user" do
     end.to change { User.count }.from(0).to(1)
 
     expect(page).to have_content("Welcome! dima")
+
+    visit cart_path
+
+    expect(page).to have_content(item.title)
   end
 
   scenario "cannot checkout" do

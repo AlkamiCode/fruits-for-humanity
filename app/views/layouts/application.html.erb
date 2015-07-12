@@ -39,8 +39,13 @@
           <ul class="inline-list right">
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
+          <% if current_user %>
+            <li><a href="#">My Orders</a></li>
+            <li><a href="#">Logout</a></li>
+          <% else %>
             <li><a href="#">Register</a></li>
             <li><a href="#">Login</a></li>
+          <% end %>
           </ul>
         </div>
       </div>
