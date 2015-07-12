@@ -27,4 +27,10 @@ RSpec.feature "the authenticated user" do
     expect(page).to_not have_link("Register")
     expect(page).to have_content("You're Already Registered")
   end
+
+  scenario "can logout" do
+    click_link("Logout")
+    expect(page).to have_content("Register")
+    expect(page).to have_content("Login")
+  end
 end

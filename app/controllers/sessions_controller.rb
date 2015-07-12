@@ -16,4 +16,11 @@ class SessionsController < ApplicationController
       # either user does not exist or password is incorrect
     end
   end
+
+  def destroy
+    session.destroy
+    current_user = nil
+    flash[:notice] = "You've Logged Out"
+    redirect_to root_path
+  end
 end
