@@ -1,15 +1,15 @@
 require "rails_helper"
 
 RSpec.feature "the authenticated user" do
-  scenario "a user can be registered" do
-    visit new_user_path
+  scenario "registered user can login" do
+    user = User.create(username: "dmitry", password: "kicks ass")
 
-    expect do
-      fill_in "Username", with: "dmitry"
-      fill_in "Password", with: "rocks"
-      click_button "Create Account"
-    end.to change { User.count }.from(0).to(1)
+    visit login_path
 
-    expect(page).to have_content("Welcome dmitry")
+    fill_in "Username", with: "dmitry"
+    fill_in "Password", with: "kicks ass"
+    click_button "Login"
+
+    expect(page).to have_content("Welcome Back dmitry")
   end
 end
