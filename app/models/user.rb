@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email_address, uniqueness: true, presence: true,
+                            format: { with: VALID_EMAIL_REGEX }
+  validates :username, length: { in: 2..32 }
 end
