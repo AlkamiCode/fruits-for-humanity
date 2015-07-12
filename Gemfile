@@ -31,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'foundation-rails'
+gem 'zurb-foundation'
+gem 'foundation_rails_helper'
 gem 'color_routes'
 gem 'traceroute'
 
