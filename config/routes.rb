@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   delete "/cart/destroy", to: "carts#delete"
   put    "/cart/update", to: "carts#update"
 
-  resources :users, only: [:new]
+  resources :users, only: [:new, :create]
 end
