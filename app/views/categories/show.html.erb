@@ -1,22 +1,23 @@
 <%= flash[:notice] %>
 <div class="row">
-  <% @category_items.each do |item| %>
-    <div class="small-3 columns">
-      <img src="http://placehold.it/400x300&text=[img]"/>
-        <a href="" data-reveal-id="myModal"><%= item.title %></a>
+  <% flex_modal_id = "a" %>
+    <% @category_items.each do |item| %>
+      <div class="small-3 columns">
+        <img src="http://placehold.it/400x300&text=[img]"/>
+          <a href="" data-reveal-id="<%= flex_modal_id %>"><%= item.title %></a>
+      </div>
 
-        <%= form_tag cart_items_path, method: :post do %>
-          <%= select_tag :quantity, options_for_select(1..10) %>
-          <%= hidden_field_tag :item_id, item.id %>
-          <%= submit_tag "Add To Cart", class: "button tiny" %>
-        <% end %>
-    </div>
-
-    <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-      <h2 id="modalTitle"><%= item.title %></h2>
-        <p class="lead"><%= item.description %></p>
-        <p><%= item.price %></p>
-          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
+      <div id="<%= flex_modal_id %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <h2 id="modalTitle"><%= item.title %></h2>
+          <p class="lead"><%= item.description %></p>
+          <p><%= item.price %></p>
+            <%= form_tag cart_items_path, method: :post do %>
+              <%= select_tag :quantity, options_for_select(1..10) %>
+              <%= hidden_field_tag :item_id, item.id %>
+              <%= submit_tag "Add To Cart", class: "button tiny" %>
+            <% end %>
+            <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+      </div>
+    <% flex_modal_id += "a" %>
   <% end %>
 </div>

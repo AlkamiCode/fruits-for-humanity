@@ -126,6 +126,21 @@ RSpec.feature "the unauthenticated user" do
     expect(page).to have_content(20.0)
   end
 
+  scenario "receives error message when registration field is empty" do
+    visit category_path(category.id)
+
+    within ("#registerModal") do
+      fill_in "E-mail",   with: "dmitryiscool@gmail.com"
+      fill_in "Username", with: ""
+      fill_in "Password", with: "rocks"
+      click_button "Create Account"
+    end
+
+    expect(page).to have_content("Please Try Again")
+    expect(page).to have_content("Register")
+    expect(page).to_not have_content("Logout")
+  end
+
   scenario "after user registers items are still in cart" do
     visit category_path(category.id)
     select "4", from: "quantity"

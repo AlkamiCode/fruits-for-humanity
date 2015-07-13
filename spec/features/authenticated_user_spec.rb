@@ -14,7 +14,10 @@ RSpec.feature "the authenticated user" do
     end
   end
 
-  scenario "registered user can login" do
+  xscenario "receives error message if login field is left blank" do
+  end
+
+  scenario "can login" do
     expect(page).to have_content("Welcome Back dmitry")
   end
 
