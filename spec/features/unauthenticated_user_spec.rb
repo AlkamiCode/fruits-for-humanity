@@ -151,7 +151,7 @@ RSpec.feature "the unauthenticated user" do
     expect do
       within ("#registerModal") do
         fill_in "E-mail",   with: "dmitryiscool@gmail.com"
-        fill_in "Username", with: "dima"
+        fill_in "Username", with: "dimas"
         fill_in "Password", with: "rocks"
         click_button "Create Account"
       end
