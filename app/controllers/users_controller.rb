@@ -7,8 +7,8 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome! #{@user.username}. Thanks For Registering."
       redirect_to root_path
     else
-      flash[:error] = "Could not create user!"
-      render :new
+      flash[:error] = "Could not create user, Please Try Again"
+      redirect_to :back
     end
   end
 

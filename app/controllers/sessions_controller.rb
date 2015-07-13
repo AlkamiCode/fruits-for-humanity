@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome Back #{@user.username}!"
       redirect_to root_path
     else
-      # either user does not exist or password is incorrect
+      flash[:error] = "Incorrect Login, Pleas Try Again"
+      redirect_to :back
     end
   end
 
