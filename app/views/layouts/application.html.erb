@@ -43,13 +43,35 @@
             <li><a href="#">My Orders</a></li>
             <li><a data-method="delete" href="/logout">Logout</a></li>
           <% else %>
-            <li><a href="/users/new">Register</a></li>
-            <li><a href="/login">Login</a></li>
+            <li><a href="/users" data-reveal-id="registerModal">Register</a></li>
+            <li><a href="/login" data-reveal-id="loginModal">Login</a></li>
           <% end %>
           </ul>
         </div>
       </div>
     </div>
+
+    <div id="loginModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <h3>Login</h3><br>
+          <%= f.text_field :username %><br>
+          <%= f.text_field :password %><br>
+          <%= f.submit "Login" %>
+        <% end %>
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="registerModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <%= form_for(:user, url: users_path) do |f| %>
+          <h3>Register</h3><br>
+          <%= f.email_field :email_address, label: 'E-mail' %><br>
+          <%= f.text_field :username %><br>
+          <%= f.text_field :password %><br>
+          <%= f.submit "Create Account" %>
+        <% end %>
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
   </footer>
   </body>
 </html>

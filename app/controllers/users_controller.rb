@@ -1,11 +1,4 @@
 class UsersController < ApplicationController
-  def new
-    if current_user
-      flash[:error] = "You're Already Registered"
-      redirect_to root_path
-    end
-    @user = User.new
-  end
 
   def create
     @user = User.new(user_params)
