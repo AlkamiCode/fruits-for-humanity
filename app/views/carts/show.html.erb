@@ -36,11 +36,18 @@
         <td>&#36;<%= item.price * quantity %></td>
       </tr>
     <% end %>
+
     <td></td>
     <td></td>
     <td></td>
     <td colspan="1"><%= button_to "Clear Cart", cart_destroy_path, method: :delete %></td>
-    <td colspan="1"><%= button_to "Checkout" %></td>
+    <td colspan="1">
+      <% if current_user %>
+        <%=button_to "Checkout" %>
+      <% else %>
+        <% flash[:notice] = "Register Or Login To Checkout" %>
+      <% end %>
+    </td>
     <td class="price">&#36;<%= @total_price %></td>
   </tbody>
 </table>

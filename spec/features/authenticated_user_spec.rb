@@ -14,9 +14,6 @@ RSpec.feature "the authenticated user" do
     end
   end
 
-  xscenario "receives error message if login field is left blank" do
-  end
-
   scenario "can login" do
     expect(page).to have_content("Welcome Back dmitry")
   end
@@ -27,5 +24,16 @@ RSpec.feature "the authenticated user" do
     expect(page).to have_content("Register")
     expect(page).to have_content("Login")
     expect(page).to_not have_content("Logout")
+  end
+
+  scenario "receives error message if login field is left blank" do
+    click_link("Logout")
+
+    within ("#loginModal") do
+      fill_in "Username", with: "dmitry"
+      click_button "Login"
+    end
+
+    expect(page).to have_content("Incorrect Login")
   end
 end
