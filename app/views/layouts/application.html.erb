@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Fruits For Humanity" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -14,10 +14,10 @@
 
   <body>
     <div class="row">
-      <div class="large-3 columns">
-        <h1><img src="http://placehold.it/400x100&text=Logo"></h1>
+      <div class="medium-3 columns">
+        <a href="/"><h1><img src="http://placehold.it/400x100&text=Logo"></h1></a>
       </div>
-      <div class="large-9 columns">
+      <div class="medium-9 columns">
         <ul class="button-group right">
           <li><a href="/cart" class="cart"><i class="fi-shopping-cart"></i></a></li>
         </ul>
@@ -29,13 +29,13 @@
   <%= yield %>
 
   <footer class="row">
-    <div class="large-12 columns">
+    <div class="medium-12 columns">
       <hr/>
       <div class="row">
-        <div class="large-6 columns">
+        <div class="medium-6 columns">
           <p>© Copyright Killin-it</p>
         </div>
-        <div class="large-6 columns">
+        <div class="medium-6 columns">
           <ul class="inline-list right">
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>

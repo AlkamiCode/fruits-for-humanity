@@ -1,18 +1,22 @@
 <table class="responsive">
   <thead>
     <tr>
-      <th width="150">Category</th>
-      <th width="150">Item</th>
+      <th>Category</th>
+      <th>Item</th>
       <th>Description</th>
-      <th width="100">Quantity</th>
-      <th width="100">Price</th>
-      <th width="100">Total Price</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total Price</th>
     </tr>
   </thead>
   <tbody>
     <% @items.each do |item, quantity| %>
       <tr>
-        <td><%= item.categories.map(&:name).join %></td>
+        <td>
+          <% item.categories.each do |category| %>
+            <%= link_to category.name, category_path(category.id) %><br>
+          <% end %>
+        </td>
         <td><%= item.title %></td>
         <td><%= item.description %></td>
         <td>
@@ -36,7 +40,7 @@
     <td></td>
     <td></td>
     <td colspan="1"><%= button_to "Clear Cart", cart_destroy_path, method: :delete %></td>
-    <td colspan="1"></td>
+    <td colspan="1"><%= button_to "Checkout" %></td>
     <td class="price">&#36;<%= @total_price %></td>
   </tbody>
 </table>
