@@ -40,7 +40,6 @@ RSpec.describe User, type: :model do
     User.create(username: "moey", password: "doughy", email_address: "moedough@hotmail.com")
 
     email_count = User.where(email_address: "moedough@hotmail.com").count
-
     expect(email_count).to eq(1)
   end
 end

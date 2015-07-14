@@ -29,11 +29,6 @@ class Cart
   end
 
   def total_items_price(items)
-    # total_price = 0
-    # items.each do |item, quantity|
-    #   total_price += item.price * quantity
-    # end
-    # return total_price
     items.reduce(0) do |sum, item|
       sum += (item.first.price * item.last)
     end
