@@ -10,11 +10,16 @@ class OrdersController < ApplicationController
       OrderItem.create(item_id: item_id, order_id: order.id, quantity: quantity)
     end
 
+    session[:cart].destroy
     redirect_to orders_path
-    # session[:cart].destroy
   end
 
   def index
-    @orders = Order.all.where(user_id: session[:user_id])
+    if current_user
+      @orders = Order.all.where(user_id: session[:user_id])
+    else
+      flash[:error] = "Unathorized Request, Must login to view Orders"
+      redirect_to root_path
+    end
   end
 end

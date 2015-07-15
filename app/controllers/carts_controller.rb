@@ -1,16 +1,21 @@
 class CartsController < ApplicationController
   def show
-    @items = {}
-    @cart.contents.each do |item_id, quantity|
-      @items[Item.find(item_id.to_i)] = quantity
+    if @cart.contents.empty?
+      flash[:error] = "Must Add Item To View Cart Page"
+      redirect_to :back
+    else
+      @items = {}
+      @cart.contents.each do |item_id, quantity|
+        @items[Item.find(item_id.to_i)] = quantity
+      end
+      @total_price = @cart.total_items_price(@items)
     end
-
-    @total_price = @cart.total_items_price(@items)
   end
 
   def delete
     session[:cart].clear
-    redirect_to :back
+    flash[:notice] = "Your Cart Is Empty, Go Fill It Up!"
+    redirect_to root_path
   end
 
   def update

@@ -13,7 +13,12 @@ class CartItemsController < ApplicationController
 
   def destroy
     session[:cart].delete(params[:id])
-    redirect_to :back
+    if @cart.contents.empty?
+      flash[:notice] = "Your Cart Is Empty, Go Fill It Up!"
+      redirect_to root_path
+    else
+      redirect_to :back
+    end
   end
 
 end
