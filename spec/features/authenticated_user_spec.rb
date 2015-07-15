@@ -36,4 +36,26 @@ RSpec.feature "the authenticated user" do
 
     expect(page).to have_content("Incorrect Login")
   end
+
+  scenario "views order details after checking out" do
+    item = Item.new(title: "Apricot", description: "it's orange", price: 2.00)
+    category = item.categories.new(name: "Fruit")
+    category.save!
+    item.save!
+
+    visit category_path(category.id)
+    select "3", from: "quantity"
+    click_button("Add To Cart")
+
+    visit cart_path
+    click_button("Checkout")
+  end
 end
+
+
+
+
+
+
+
+
