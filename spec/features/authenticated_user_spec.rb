@@ -37,6 +37,14 @@ RSpec.feature "the authenticated user" do
     expect(page).to have_content("Incorrect Login")
   end
 
+  scenario "cannot visit cart page when cart is empty" do
+    visit root_path
+    page.find(".cart").click
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Must Add Item To View Cart Page")
+  end
+
   scenario "views order details after checking out" do
     item = Item.new(title: "Apricot", description: "it's orange", price: 2.00)
     category = item.categories.new(name: "Fruit")
@@ -48,14 +56,12 @@ RSpec.feature "the authenticated user" do
     click_button("Add To Cart")
 
     visit cart_path
-    click_button("Checkout")
+
+    expect do
+      click_button("Checkout")
+    end.to change { Order.count }.from(0).to(1)
+
+    expect(page).to have_content(item.title)
+    expect(page).to have_content(item.price)
   end
 end
-
-
-
-
-
-
-
-

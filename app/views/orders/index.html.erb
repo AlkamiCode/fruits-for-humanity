@@ -2,6 +2,7 @@
 
 <% @orders.each do |order| %>
   <%= order.created_at %>
+  <%= order.status %>
   <%= order.total_price %><br>
 
     <% order.items.each do |item| %>

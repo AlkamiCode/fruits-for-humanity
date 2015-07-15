@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
       OrderItem.create(item_id: item_id, order_id: order.id, quantity: quantity)
     end
 
-    session[:cart].destroy
+    session[:cart] = {}
     redirect_to orders_path
   end
 
