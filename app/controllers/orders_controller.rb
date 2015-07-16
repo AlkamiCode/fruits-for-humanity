@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def create
     user_id     = session[:user_id]
-    total_price = params[:total_price].to_i
+    total_price = params[:total_price].to_f
     cart_items  = session[:cart]
 
     order = Order.create(user_id: user_id, total_price: total_price)
