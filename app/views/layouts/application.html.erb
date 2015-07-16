@@ -40,7 +40,7 @@
         <% if current_admin? %>
           <ul class="inline-list right">
             <li><a href="/admin/orders">Orders</a></li>
-            <li><a href="/admin/new_item">Add Items</a></li>
+            <li><a href="/admin/items/new" data-reveal-id="AdminAddsItemModal">Add Items</a></li>
           </ul>
         <% end %>
 
@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <div id="loginModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <div id="LoginModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <%= form_for(:session, url: login_path) do |f| %>
           <h3>Login</h3><br>
           <%= f.text_field :username %><br>
@@ -70,13 +70,26 @@
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
 
-    <div id="registerModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <div id="RegisterModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <%= form_for(:user, url: users_path) do |f| %>
           <h3>Register</h3><br>
           <%= f.email_field :email_address, label: 'E-mail' %><br>
           <%= f.text_field :username %><br>
           <%= f.text_field :password %><br>
           <%= f.submit "Create Account" %>
+        <% end %>
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="AdminAddsItemModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <%= form_for(:admin, url: admin_items_path) do |f| %>
+          <h3>Add Item</h3><br>
+          <%= f.text_field :title %><br>
+          <%= f.text_field :description %><br>
+          <%= f.text_field :price %><br>
+          <%= f.collection_select :category, Category.all, :id, :name, prompt: true, include_blank: "New Category" %>
+          <div class="hidden_input_field" id="hif"><%= f.text_field :category, label: "New Category Name" %></div>
+          <%= f.submit "Add Item" %>
         <% end %>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>

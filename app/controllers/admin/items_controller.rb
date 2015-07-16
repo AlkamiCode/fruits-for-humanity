@@ -1,4 +1,5 @@
 class Admin::ItemsController < Admin::BaseController
-  def show
+  def create
+    # binding.pry
   end
 end
