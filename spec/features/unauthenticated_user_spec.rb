@@ -129,7 +129,7 @@ RSpec.feature "the unauthenticated user" do
   scenario "receives error message when registration field is empty" do
     visit category_path(category.id)
 
-    within ("#registerModal") do
+    within ("#RegisterModal") do
       fill_in "E-mail",   with: "dmitryiscool@gmail.com"
       fill_in "Username", with: ""
       fill_in "Password", with: "rocks"
@@ -149,7 +149,7 @@ RSpec.feature "the unauthenticated user" do
     visit root_path
 
     expect do
-      within ("#registerModal") do
+      within ("#RegisterModal") do
         fill_in "E-mail",   with: "dmitryiscool@gmail.com"
         fill_in "Username", with: "dimas"
         fill_in "Password", with: "rocks"

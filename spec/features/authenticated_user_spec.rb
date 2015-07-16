@@ -7,7 +7,7 @@ RSpec.feature "the authenticated user" do
 
     visit root_path
 
-    within ("#loginModal") do
+    within ("#LoginModal") do
       fill_in "Username", with: "dmitry"
       fill_in "Password", with: "kicks ass"
       click_button "Login"
@@ -29,7 +29,7 @@ RSpec.feature "the authenticated user" do
   scenario "receives error message if login field is left blank" do
     click_link("Logout")
 
-    within ("#loginModal") do
+    within ("#LoginModal") do
       fill_in "Username", with: "dmitry"
       click_button "Login"
     end
