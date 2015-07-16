@@ -36,17 +36,26 @@
           <p>© Copyright Killin-it</p>
         </div>
         <div class="medium-6 columns">
+
+        <% if current_admin? %>
+          <ul class="inline-list right">
+            <li><a href="/admin/orders">Orders</a></li>
+            <li><a href="/admin/new_item">Add Items</a></li>
+          </ul>
+        <% end %>
+
+        <% if current_user %>
           <ul class="inline-list right">
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-          <% if current_user %>
             <li><a href="/user/orders">My Orders</a></li>
             <li><a data-method="delete" href="/logout">Logout</a></li>
-          <% else %>
+        <% else %>
             <li><a href="/users" data-reveal-id="registerModal">Register</a></li>
             <li><a href="/login" data-reveal-id="loginModal">Login</a></li>
-          <% end %>
+        <% end %>
           </ul>
+
         </div>
       </div>
     </div>
