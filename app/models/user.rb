@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   validates :email_address, uniqueness: true, presence: true,
                             format: { with: VALID_EMAIL_REGEX }
   validates :username, length: { in: 5..12 }
+
+  enum role: %w(default, admin)
 end

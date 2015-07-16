@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class User::OrdersController < User::BaseController
   def create
     user_id     = session[:user_id]
     total_price = params[:total_price].to_f
@@ -11,15 +11,10 @@ class OrdersController < ApplicationController
     end
 
     session[:cart] = {}
-    redirect_to orders_path
+    redirect_to user_orders_path
   end
 
   def index
-    if current_user
-      @orders = Order.all.where(user_id: session[:user_id])
-    else
-      flash[:error] = "Unathorized Request, Must login to view Orders"
-      redirect_to root_path
-    end
+    @orders = Order.all.where(user_id: session[:user_id])
   end
 end

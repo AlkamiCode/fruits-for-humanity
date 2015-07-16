@@ -43,7 +43,7 @@
     <td colspan="1"><%= button_to "Clear Cart", cart_destroy_path, method: :delete %></td>
     <td colspan="1">
       <% if current_user %>
-        <%=button_to "Checkout", orders_path, params: {total_price: @total_price } %>
+        <%=button_to "Checkout", user_orders_path, params: {total_price: @total_price } %>
       <% else %>
         <% flash[:notice] = "Register Or Login To Checkout" %>
       <% end %>
