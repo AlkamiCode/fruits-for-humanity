@@ -35,6 +35,7 @@ gem 'zurb-foundation'
 gem 'foundation_rails_helper'
 gem 'color_routes'
 gem 'traceroute'
+gem 'paperclip'
 
 
 group :development, :test do

@@ -82,11 +82,12 @@
     </div>
 
     <div id="AdminAddsItemModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-        <%= form_for(:admin, url: admin_items_path) do |f| %>
+        <%= form_for(:item, url: admin_items_path, html: {multipart: true}) do |f| %>
           <h3>Add Item</h3><br>
           <%= f.text_field :title %><br>
           <%= f.text_field :description %><br>
           <%= f.text_field :price %><br>
+          <%= f.file_field :image %><br>
           <%= f.collection_select :category, Category.all, :id, :name, prompt: true, include_blank: "New Category" %>
           <div class="hidden_input_field" id="hif"><%= f.text_field :category, label: "New Category Name" %></div>
           <%= f.submit "Add Item" %>
