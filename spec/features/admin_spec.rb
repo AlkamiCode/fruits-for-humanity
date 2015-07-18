@@ -2,26 +2,58 @@ require "rails_helper"
 
 RSpec.feature "Admin" do
 
-  scenario 'logs in and sees Admin home page' do
-    admin = User.create(username: "admin",
+  before (:each) do
+    @admin = User.create(username: "admin",
                         password: "rules",
                         email_address: "admin@gmail.com",
                         role: 1)
+  end
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+  scenario "logs in and sees Admin home page" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit admin_orders_path
     assert page.has_content?("Orders")
   end
 
-  scenario "default user sees 404 error in admin area" do
-    user = User.create(username: "joerugular",
-                       password: "password",
-                       email_address: "joesmo@yahoo.com",
-                       role: 0)
+  scenario "creates item in existing category" do
+    category = Category.create!(name: "Bam")
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit admin_orders_path
+    visit root_path
 
-    expect(page).to have_content("The page you were looking for doesn't exist")
+    within ("#LoginModal") do
+      fill_in "Username", with: "admin"
+      fill_in "Password", with: "rules"
+      click_button "Login"
+    end
+
+    expect do
+      within ("#AdminAddsItemModal") do
+        fill_in "Title", with: "new item"
+        fill_in "Description", with: "is wicked gnarly"
+        fill_in "Price", with: 10.40
+        select category.name, from: "Category"
+        click_button "Add Item"
+      end
+    end.to change { Item.count }.from(0).to(1)
+  end
+
+  scenario "creates item and new category" do
+    visit root_path
+
+    within ("#LoginModal") do
+      fill_in "Username", with: "admin"
+      fill_in "Password", with: "rules"
+      click_button "Login"
+    end
+
+    expect do
+      within ("#AdminAddsItemModal") do
+        fill_in "Title", with: "new item"
+        fill_in "Description", with: "is wicked gnarly"
+        fill_in "Price", with: 10.40
+        fill_in "New Category", with: "Cool Stuff"
+        click_button "Add Item"
+      end
+    end.to change { Category.count }.from(0).to(1)
   end
 end

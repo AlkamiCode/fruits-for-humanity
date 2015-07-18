@@ -64,4 +64,16 @@ RSpec.feature "the authenticated user" do
     expect(page).to have_content(item.title)
     expect(page).to have_content(item.price)
   end
+
+  scenario "sees 404 error in admin area" do
+    user = User.create(username: "joerugular",
+                       password: "password",
+                       email_address: "joesmo@yahoo.com",
+                       role: 0)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit admin_orders_path
+
+    expect(page).to have_content("The page you were looking for doesn't exist")
+  end
 end
