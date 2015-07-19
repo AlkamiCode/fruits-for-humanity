@@ -6,6 +6,7 @@ class Admin::ItemsController < Admin::BaseController
     item_image       = params[:item][:image]
     category         = params[:item][:category]
     new_category     = params[:item][:new_category]
+    category_image   = params[:item][:category_image]
 
     if new_category.empty?
       item = Item.new(title: item_title, description: item_description, price: item_price, image: item_image)
@@ -16,7 +17,7 @@ class Admin::ItemsController < Admin::BaseController
       redirect_to :back
     else
       item = Item.new(title: item_title, description: item_description, price: item_price, image: item_image)
-      category = item.categories.new(name: new_category)
+      category = item.categories.new(name: new_category, image: category_image)
       category.save!
       item.save!
       flash[:notice] = "Nice! You've created a #{category.name} category and added #{item.title} to its list."

@@ -44,15 +44,15 @@
           </ul>
         <% end %>
 
-        <% if current_user %>
           <ul class="inline-list right">
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
+        <% if current_user %>
             <li><a href="/user/orders">My Orders</a></li>
             <li><a data-method="delete" href="/logout">Logout</a></li>
         <% else %>
-            <li><a href="/users" data-reveal-id="registerModal">Register</a></li>
-            <li><a href="/login" data-reveal-id="loginModal">Login</a></li>
+            <li><a href="/users" data-reveal-id="RegisterModal">Register</a></li>
+            <li><a href="/login" data-reveal-id="LoginModal">Login</a></li>
         <% end %>
           </ul>
 
@@ -63,8 +63,8 @@
     <div id="LoginModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <%= form_for(:session, url: login_path) do |f| %>
           <h3>Login</h3><br>
-          <%= f.text_field :username %><br>
-          <%= f.text_field :password %><br>
+          <%= f.text_field :username %>
+          <%= f.text_field :password %>
           <%= f.submit "Login" %>
         <% end %>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -73,9 +73,9 @@
     <div id="RegisterModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <%= form_for(:user, url: users_path) do |f| %>
           <h3>Register</h3><br>
-          <%= f.email_field :email_address, label: 'E-mail' %><br>
-          <%= f.text_field :username %><br>
-          <%= f.text_field :password %><br>
+          <%= f.email_field :email_address, label: 'E-mail' %>
+          <%= f.text_field :username %>
+          <%= f.text_field :password %>
           <%= f.submit "Create Account" %>
         <% end %>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -84,12 +84,15 @@
     <div id="AdminAddsItemModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <%= form_for(:item, url: admin_items_path, html: {multipart: true}) do |f| %>
           <h3>Add Item</h3><br>
-          <%= f.text_field :title %><br>
-          <%= f.text_field :description %><br>
-          <%= f.text_field :price %><br>
-          <%= f.file_field :image %><br>
+          <%= f.text_field :title %>
+          <%= f.text_field :description %>
+          <%= f.text_field :price %>
+          <%= f.file_field :image %>
           <%= f.collection_select :category, Category.all, :id, :name, prompt: true, include_blank: "New Category" %>
-          <div class="hidden_input_field" id="hif"><%= f.text_field :new_category, label: "New Category Name" %></div>
+          <div class="hidden_input_field" id="hif">
+           <%= f.file_field :category_image %>
+           <%= f.text_field :new_category, label: "New Category Name" %>
+          </div>
           <%= f.submit "Add Item" %>
         <% end %>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
