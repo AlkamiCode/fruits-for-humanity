@@ -163,7 +163,4 @@ RSpec.feature "the unauthenticated user" do
 
     expect(page).to have_content(item.title)
   end
-
-  scenario "cannot checkout" do
-  end
 end

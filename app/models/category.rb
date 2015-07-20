@@ -4,6 +4,6 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
-  has_attached_file :image, default_url: "default-medium.png"
+  has_attached_file :image, default_url: "Fresh-Fruit-Stand.jpg"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 end

@@ -7,6 +7,14 @@ RSpec.feature "Admin" do
                         password: "rules",
                         email_address: "admin@gmail.com",
                         role: 1)
+
+    visit root_path
+
+    within ("#LoginModal") do
+      fill_in "Username", with: "admin"
+      fill_in "Password", with: "rules"
+      click_button "Login"
+    end
   end
 
   scenario "logs in and sees Admin home page" do
@@ -20,12 +28,6 @@ RSpec.feature "Admin" do
 
     visit root_path
 
-    within ("#LoginModal") do
-      fill_in "Username", with: "admin"
-      fill_in "Password", with: "rules"
-      click_button "Login"
-    end
-
     expect do
       within ("#AdminAddsItemModal") do
         fill_in "Title", with: "new item"
@@ -38,14 +40,6 @@ RSpec.feature "Admin" do
   end
 
   scenario "creates item and new category" do
-    visit root_path
-
-    within ("#LoginModal") do
-      fill_in "Username", with: "admin"
-      fill_in "Password", with: "rules"
-      click_button "Login"
-    end
-
     expect do
       within ("#AdminAddsItemModal") do
         fill_in "Title", with: "new item"
