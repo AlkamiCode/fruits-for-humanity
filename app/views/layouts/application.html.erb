@@ -29,7 +29,7 @@
   <%= yield %>
 
   <footer class="row">
-    <div class="medium-12 columns">
+    <div class="medium-12 columns sticky_footsy">
       <hr/>
       <div class="row">
         <div class="medium-6 columns">
@@ -47,13 +47,13 @@
           <ul class="inline-list right">
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-        <% if current_user %>
-            <li><a href="/user/orders">My Orders</a></li>
+          <% if current_user %>
+            <% if !current_admin? %><li><a href="/user/orders">My Orders</a><% end %></li>
             <li><a data-method="delete" href="/logout">Logout</a></li>
-        <% else %>
+          <% else %>
             <li><a href="/users" data-reveal-id="RegisterModal">Register</a></li>
             <li><a href="/login" data-reveal-id="LoginModal">Login</a></li>
-        <% end %>
+          <% end %>
           </ul>
 
         </div>

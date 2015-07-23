@@ -1,4 +1,5 @@
 class Admin::ItemsController < Admin::BaseController
+
   def create
     item_title       = params[:item][:title]
     item_description = params[:item][:description]
@@ -21,6 +22,19 @@ class Admin::ItemsController < Admin::BaseController
       category.save!
       item.save!
       flash[:notice] = "Nice! You've created a #{category.name} category and added #{item.title} to its list."
+      redirect_to :back
+    end
+  end
+
+  def item_status
+    item = Item.find(params[:id])
+    if item.available?
+      item.update!(available: false)
+      flash[:notice] = "You've successfully retired #{item.title}."
+      redirect_to :back
+    else
+      item.update!(available: true)
+      flash[:notice] = "You've successfully un-retired #{item.title}."
       redirect_to :back
     end
   end

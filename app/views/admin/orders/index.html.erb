@@ -4,14 +4,13 @@
 <% @orders.each do |order| %>
   <ul class="accordion" data-accordion>
     <li class="accordion-navigation">
-      <a href="#panel<%= flex_count %>"><%= order.created_at %><br>TOTAL COST:&#36;<%= order.total_price %></a>
+      <a href="#panel<%= flex_count %>"><%= order.created_at %><br>TOTAL COST:&#36;<%= order.total_price %><br><%= order.user.email_address %></a>
       <div id="panel<%= flex_count %>" class="content">
 
         <table class="responsive">
           <thead>
             <tr>
               <th>Status</th>
-              <th>User E-Mail</th>
               <th>Item Title</th>
               <th>Item ID</th>
               <th>Item Price</th>
@@ -23,7 +22,6 @@
               <tr>
             <% order.order_items.each do |order_item| %>
                 <td><%= order.status %></td>
-                <td><%= order.user.email_address %></td>
                 <td><%= order_item.item.title %></td>
                 <td><%= order_item.item.id %></td>
                 <td><%= order_item.item.price %></td>

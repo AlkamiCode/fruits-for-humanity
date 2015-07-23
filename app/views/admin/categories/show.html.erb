@@ -1,21 +1,23 @@
 <div class="row">
   <% @category_items.each do |item| %>
-  <% if item.available? %>
     <div class="small-3 columns">
       <img src="http://placehold.it/400x300&text=[img]"/></img>
         <a href="" data-reveal-id="item-<%= item.id %>"><%= item.title %></a>
+
+        <% if current_admin? %>
+          <ul class="button-group even-3 round">
+                <% item.available? ? retire = "Retire" : retire = "Un-Retire" %>
+            <li><%= link_to retire, admin_item_status_path(item.id), method: :put, class: "button" %></li>
+            <li><a href="" class="button">Update</a></li>
+            <li><a href="" class="button">Delete</a></li>
+          </ul>
+        <% end %>
     </div>
-  <% end %>
 
     <div id="item-<%= item.id %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
       <h2 id="modalTitle"><%= item.title %></h2>
         <p class="lead"><%= item.description %></p>
         <p><%= item.price %></p>
-          <%= form_tag cart_items_path, method: :post do %>
-            <%= select_tag :quantity, options_for_select(1..10) %>
-            <%= hidden_field_tag :item_id, item.id %>
-            <%= submit_tag "Add To Cart", class: "button tiny" %>
-          <% end %>
           <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
   <% end %>

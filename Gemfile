@@ -29,11 +29,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'responders'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 gem 'foundation-rails'
-gem 'zurb-foundation'
+gem 'zurb-foundation', group: :production # uninitialized constant Foundation::Rails::Generators (NameError)
 gem 'foundation_rails_helper'
 gem 'color_routes'
 gem 'traceroute'
