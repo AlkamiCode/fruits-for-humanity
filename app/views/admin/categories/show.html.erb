@@ -4,14 +4,12 @@
       <img src="http://placehold.it/400x300&text=[img]"/></img>
         <a href="" data-reveal-id="item-<%= item.id %>"><%= item.title %></a>
 
-        <% if current_admin? %>
           <ul class="button-group even-3 round">
-                <% item.available? ? retire = "Retire" : retire = "Un-Retire" %>
-            <li><%= link_to retire, admin_item_status_path(item.id), method: :put, class: "button" %></li>
+            <% item.available? ? status = "Retire" : status = "Un-Retire" %>
+            <li><%= link_to status, admin_item_status_path(item.id), method: :put, class: "button" %></li>
             <li><a href="" class="button">Update</a></li>
             <li><a href="" class="button">Delete</a></li>
           </ul>
-        <% end %>
     </div>
 
     <div id="item-<%= item.id %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   namespace :admin, only: [:show] do
     resources :items, only: [:create]
       put "items/:id", to: "items#item_status", :as => "item_status"
-    resources :categories, only: [:show]
+    resources :categories, only: [:show, :index, :update]
     resources :orders, only: [:index]
   end
 end
