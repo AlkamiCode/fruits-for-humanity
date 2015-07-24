@@ -22,9 +22,9 @@
   <% @categories.each do |category| %>
     <div class="small-4 columns category_links">
       <img src="http://placehold.it/400x300&text=[img]"/>
-      <%= link_to category.name, category_path(category.id) %>
-    <% category.items.any? { |item| item.available? } ? status = "Retire" : status = "Un-Retire" %>
-    <%= link_to status, admin_category_path(category.id), method: :put, class: "button round tiny" %>
+      <%= link_to category.name, admin_category_path(category.id) %>
+      <% category.items.any? { |item| item.available? } ? status = "Retire" : status = "Un-Retire" %>
+      <%= link_to status, admin_category_path(category.id), method: :put, class: "button round tiny" %>
     </div>
   <% end %>
 </div>

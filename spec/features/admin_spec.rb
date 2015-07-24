@@ -50,4 +50,27 @@ RSpec.feature "Admin" do
       end
     end.to change { Category.count }.from(0).to(1)
   end
+
+  scenario "retires item" do
+    item = Item.new(title: "Orange", description: "it's orange", price: 2.00, available: true)
+    category = item.categories.new(name: "Fruit")
+    category.save!
+    item.save!
+
+    visit admin_category_path(category.id)
+    expect(page).to have_content(item.title)
+    expect(item.available).to eq(true)
+
+    click_link("Retire")
+    expect(page).to have_link("Un-Retire")
+    item.reload
+
+    expect(item.available).to eq(false)
+
+    click_link("Logout")
+
+    visit category_path(category.id)
+
+    expect(page).to have_content("This Category Is Empty")
+  end
 end

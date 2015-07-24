@@ -1,11 +1,11 @@
 <div class="row">
   <% @category_items.each do |item| %>
-  <% if item.available? %>
-    <div class="small-3 columns">
-      <img src="http://placehold.it/400x300&text=[img]"/></img>
-        <a href="" data-reveal-id="item-<%= item.id %>"><%= item.title %></a>
-    </div>
-  <% end %>
+    <% if item.available? %>
+      <div class="small-3 columns">
+        <img src="http://placehold.it/400x300&text=[img]"/>
+          <a href="" data-reveal-id="item-<%= item.id %>"><%= item.title %></a>
+      </div>
+    <% end %>
 
     <div id="item-<%= item.id %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
       <h2 id="modalTitle"><%= item.title %></h2>
