@@ -73,4 +73,33 @@ RSpec.feature "Admin" do
 
     expect(page).to have_content("This Category Is Empty")
   end
+
+  scenario "retires entire category of items" do
+    item1 = Item.new(title: "Mango", description: "it's hairy", price: 3.00, available: true)
+    item2 = Item.new(title: "Orange", description: "it's orange", price: 2.00, available: true)
+    category = item1.categories.new(name: "Passion Fruit")
+    category.save!
+    item1.save!
+    item2.categories << category
+    item2.save!
+
+    visit admin_categories_path
+    expect(category.items.all? {|item| item.available}).to eq(true)
+
+    click_link("Retire")
+    category.reload
+
+    expect(category.items.all? {|item| item.available}).to eq(false)
+
+    click_link("Logout")
+
+    expect(page).to_not have_link(category.name)
+  end
 end
+
+
+
+
+
+
+
