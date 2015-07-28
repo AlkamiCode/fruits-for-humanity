@@ -54,7 +54,7 @@ RSpec.describe Item, type: :model do
     expect(item_blah).to_not be_valid
   end
 
-  xit 'can be created without a photo' do
-     expect(@item.picture_file_name).to be_nil
+  it 'can be created without a photo' do
+     expect(@item.image_file_name).to be_nil
   end
 end
