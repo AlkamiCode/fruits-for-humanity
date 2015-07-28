@@ -51,7 +51,7 @@ RSpec.feature "Admin" do
     end.to change { Category.count }.from(0).to(1)
   end
 
-  scenario "retires item" do
+  scenario "retires item from user view" do
     item = Item.new(title: "Orange", description: "it's orange", price: 2.00, available: true)
     category = item.categories.new(name: "Fruit")
     category.save!
@@ -78,7 +78,7 @@ RSpec.feature "Admin" do
     expect(page).to have_content("This Category Is Empty")
   end
 
-  scenario "retires entire category of items" do
+  scenario "retires entire category of items from user view" do
     item1 = Item.new(title: "Mango", description: "it's hairy", price: 3.00, available: true)
     item2 = Item.new(title: "Orange", description: "it's orange", price: 2.00, available: true)
     category = item1.categories.new(name: "Passion Fruit")
@@ -100,7 +100,7 @@ RSpec.feature "Admin" do
     expect(page).to_not have_link(category.name)
   end
 
-  scenario "updates item" do
+  scenario "updates item attributes" do
     item = Item.new(title: "Orange", description: "it's orange", price: 2.00, available: true)
     category = item.categories.new(name: "Fruit")
     category.save!
@@ -109,13 +109,15 @@ RSpec.feature "Admin" do
     visit admin_category_path(category.id)
     click_button('Update')
 
-    expect do
-      within ("#Update-item-#{item.id}") do
-        fill_in "Title", with: "Green"
-        click_button "Update"
-      end
-    end.to change { Item.last.title }.from("Orange").to("Green")
+    within ("#Update-item-#{item.id}") do
+      fill_in "Title", with: "Green"
+      fill_in "Price", with: 2.50
+      click_button "Update"
+    end
+    item.reload
 
+    expect(item.title).to eq("Green")
+    expect(item.price).to eq(2.50)
   end
 end
 
