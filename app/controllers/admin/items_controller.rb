@@ -26,16 +26,27 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
-  def item_status
+  def update
     item = Item.find(params[:id])
-    if item.available?
-      item.update!(available: false)
-      flash[:notice] = "You've successfully retired #{item.title}."
+    item.update(item_params)
+
+    if item.save
+      flash[:notice] = "Item updated!"
       redirect_to :back
     else
-      item.update!(available: true)
-      flash[:notice] = "You've successfully un-retired #{item.title}."
+      flash[:notice] = "Unable to update item"
       redirect_to :back
     end
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:title,
+                                 :description,
+                                 :price,
+                                 :image,
+                                 :available,
+                                 category_ids: [])
   end
 end

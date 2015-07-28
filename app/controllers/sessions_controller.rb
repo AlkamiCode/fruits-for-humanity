@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:notice] = "Welcome Back #{@user.username}!"
-      redirect_to root_path
+        if current_admin?
+          redirect_to admin_categories_path
+        else
+          redirect_to root_path
+        end
     else
       flash[:error] = "Incorrect Login, Pleas Try Again"
       redirect_to :back

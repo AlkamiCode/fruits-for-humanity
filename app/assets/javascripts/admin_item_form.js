@@ -9,4 +9,9 @@ $(document).ready(function() {
       $("#hif").addClass("hidden_input_field");
     };
   });
+
+
+  $('input[type="radio"]').click(function() {
+  // $("input#item_not_available_status").prop("checked", true);
+    });
 });

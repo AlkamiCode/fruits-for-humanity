@@ -61,8 +61,12 @@ RSpec.feature "Admin" do
     expect(page).to have_content(item.title)
     expect(item.available).to eq(true)
 
-    click_link("Retire")
-    expect(page).to have_link("Un-Retire")
+    click_button("Update")
+
+    within ("#Update-item-#{item.id}") do
+      select false, from: "Available"
+      click_button "Update"
+    end
     item.reload
 
     expect(item.available).to eq(false)
@@ -94,6 +98,24 @@ RSpec.feature "Admin" do
     click_link("Logout")
 
     expect(page).to_not have_link(category.name)
+  end
+
+  scenario "updates item" do
+    item = Item.new(title: "Orange", description: "it's orange", price: 2.00, available: true)
+    category = item.categories.new(name: "Fruit")
+    category.save!
+    item.save!
+
+    visit admin_category_path(category.id)
+    click_button('Update')
+
+    expect do
+      within ("#Update-item-#{item.id}") do
+        fill_in "Title", with: "Green"
+        click_button "Update"
+      end
+    end.to change { Item.last.title }.from("Orange").to("Green")
+
   end
 end
 
