@@ -17,7 +17,7 @@
 <div class="row">
   <% @categories.each do |category| %>
     <div class="small-4 columns category_links">
-      <img src="http://placehold.it/400x300&text=[img]"/>
+      <%= image_tag(category.image.url) %>
       <%= link_to category.name, admin_category_path(category.id) %>
 
       <% category.items.any? { |item| item.available? } ? status = "Retire" : status = "Un-Retire" %>

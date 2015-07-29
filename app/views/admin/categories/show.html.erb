@@ -1,7 +1,7 @@
 <div class="row">
   <% @category_items.each do |item| %>
     <div class="small-3 columns">
-      <img src="http://placehold.it/400x300&text=[img]"/>
+      <%= image_tag(item.image.url) %>
         <a href="" data-reveal-id="item-<%= item.id %>"><%= item.title %></a>
 
           <ul class="button-group even-3 round">

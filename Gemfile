@@ -40,6 +40,7 @@ gem 'foundation_rails_helper'
 gem 'color_routes'
 gem 'traceroute'
 gem 'paperclip'
+gem 'aws-sdk'
 
 
 group :development, :test do
