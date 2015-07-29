@@ -30,3 +30,20 @@
     </div>
   <% end %>
 </div>
+
+<div id="AdminAddsItemModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <%= form_for(:item, url: admin_items_path, html: {multipart: true}) do |f| %>
+    <h3>Add Item</h3><br>
+    <%= f.text_field :title %>
+    <%= f.text_field :description %>
+    <%= f.text_field :price %>
+    <%= f.file_field :image %>
+    <%= f.collection_select :category, Category.all, :id, :name, prompt: true, include_blank: "New Category" %>
+    <div class="hidden_input_field" id="hif">
+     <%= f.file_field :category_image %>
+     <%= f.text_field :new_category, label: "New Category Name" %>
+    </div>
+    <%= f.submit "Add Item" %>
+  <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

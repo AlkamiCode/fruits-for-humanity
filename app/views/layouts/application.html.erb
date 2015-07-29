@@ -13,15 +13,15 @@
   </head>
 
   <body>
-    <div class="row">
-      <div class="medium-3 columns">
+    <div class="row navbar">
+      <div class="medium-4 columns logo">
       <% if current_admin? %>
-        <a href="/admin/categories"><h1><img src="http://placehold.it/400x100&text=Logo">
+        <%= link_to image_tag("fruits-for-humanity-logo.png"), admin_categories_path %>
       <% else %>
-        <a href="/"><h1><img src="http://placehold.it/400x100&text=Logo"></h1></a>
+        <%= link_to image_tag("fruits-for-humanity-logo.png"), root_path %>
       <% end %>
       </div>
-      <div class="medium-9 columns">
+      <div class="medium-1 columns">
         <ul class="button-group right">
           <li><a href="/cart" class="cart"><i class="fi-shopping-cart"></i></a></li>
         </ul>
@@ -84,24 +84,6 @@
         <% end %>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
-
-    <div id="AdminAddsItemModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-        <%= form_for(:item, url: admin_items_path, html: {multipart: true}) do |f| %>
-          <h3>Add Item</h3><br>
-          <%= f.text_field :title %>
-          <%= f.text_field :description %>
-          <%= f.text_field :price %>
-          <%= f.file_field :image %>
-          <%= f.collection_select :category, Category.all, :id, :name, prompt: true, include_blank: "New Category" %>
-          <div class="hidden_input_field" id="hif">
-           <%= f.file_field :category_image %>
-           <%= f.text_field :new_category, label: "New Category Name" %>
-          </div>
-          <%= f.submit "Add Item" %>
-        <% end %>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
-
   </footer>
   </body>
 </html>

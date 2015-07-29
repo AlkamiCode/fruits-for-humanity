@@ -26,7 +26,7 @@ RSpec.feature "Admin" do
   scenario "creates item in existing category" do
     category = Category.create!(name: "Bam")
 
-    visit root_path
+    visit admin_categories_path
 
     expect do
       within ("#AdminAddsItemModal") do
