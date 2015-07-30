@@ -11,9 +11,13 @@
 <div class="row">
   <% @categories.each do |category| %>
     <% if category.items.any? { |item| item.available? } %>
-      <div class="small-4 columns category_links">
-        <%= image_tag(category.image.url) %>
-        <%= link_to category.name, category_path(category.id) %>
+      <div class="small-4 columns">
+
+        <%= link_to category_path(category.id) do %>
+          <%= image_tag(category.image.url, class: "category_image") %>
+          <div id="category_name"><%= category.name %></div>
+        <% end %>
+
       </div>
     <% end %>
   <% end %>

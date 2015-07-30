@@ -9,12 +9,6 @@ class Item < ActiveRecord::Base
   validates :price, presence: true, numericality: { only: :decimal, greater_than: 0 }
   validates :categories, presence: true
 
-  has_attached_file :image, default_url: "vegitable_mix.jpg", styles: {
-    thumbnail: '60x60>',
-    thumb:     '100x100>',
-    small:     '300x300#',
-    medium:    '500x500>',
-    large:     '1000x1000>'
-  }
+  has_attached_file :image, default_url: "vegitable_mix.jpg"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 end

@@ -1,3 +1,7 @@
 .medium-12.jumbotron {
   margin-bottom: 5%;
 }
+
+#category_name {
+  display: none;
+}

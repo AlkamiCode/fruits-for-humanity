@@ -11,7 +11,17 @@ $(document).ready(function() {
   });
 
 
-  $('input[type="radio"]').click(function() {
-  // $("input#item_not_available_status").prop("checked", true);
-    });
+  $('img.category_image').mouseenter(function() {
+       $(this).animate({
+           opacity: 0.5,
+       });
+       $( "#category_name" ).show();
+   });
+   $('img.category_image').mouseleave(function() {
+       $(this).animate({
+           opacity: 1,
+       });
+       $( "#category_name" ).hide();
+   });
+
 });
