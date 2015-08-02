@@ -148,16 +148,16 @@ RSpec.feature "the unauthenticated user" do
 
     visit root_path
 
-    expect do
+
       within ("#RegisterModal") do
         fill_in "E-mail",   with: "dmitryiscool@gmail.com"
-        fill_in "Username", with: "dimas"
+        fill_in "Username", with: "dmitry"
         fill_in "Password", with: "rocks"
         click_button "Create Account"
       end
-    end.to change { User.count }.from(0).to(1)
 
-    expect(page).to have_content("Welcome! dima")
+
+      expect(page).to have_content("Welcome! dmitry")
 
     visit cart_path
 

@@ -11,3 +11,20 @@
   display: inline-block;
   width: 60px;
 }
+
+.medium-12.jumbotron {
+  margin-bottom: 5%;
+}
+
+.cat_name {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.image_rapper {
+  position: relative;
+}

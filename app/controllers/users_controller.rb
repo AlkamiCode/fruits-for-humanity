@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome! #{@user.username}. Thanks For Registering."
-      redirect_to root_path
+      redirect_to :back
     else
       flash[:error] = "Could not create user, Please Try Again"
       redirect_to :back

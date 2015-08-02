@@ -9,19 +9,4 @@ $(document).ready(function() {
       $("#hif").addClass("hidden_input_field");
     };
   });
-
-
-  $('img.category_image').mouseenter(function() {
-       $(this).animate({
-           opacity: 0.5,
-       });
-       $( "#category_name" ).show();
-   });
-   $('img.category_image').mouseleave(function() {
-       $(this).animate({
-           opacity: 1,
-       });
-       $( "#category_name" ).hide();
-   });
-
 });

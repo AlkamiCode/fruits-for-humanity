@@ -1,0 +1,16 @@
+$(document).ready(function(){
+  $('.image_rapper').mouseenter(function() {
+       $(this).children('.cat_name').show();
+
+       $('.category_img').animate({
+           opacity: 0.5
+       });
+   });
+   $('.image_rapper').mouseleave(function() {
+       $(this).children('.cat_name').hide();
+
+       $('category_img').animate({
+           opacity: 1
+       });
+   });
+});
