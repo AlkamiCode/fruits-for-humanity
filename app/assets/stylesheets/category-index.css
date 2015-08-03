@@ -12,19 +12,21 @@
   width: 60px;
 }
 
-.medium-12.jumbotron {
-  margin-bottom: 5%;
-}
-
-.cat_name {
+.text_title {
   display: none;
   position: absolute;
   top: 40%;
-  left: 30%;
-  font-size: 30px;
+  width: 90%;
+  text-align: center;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
-.image_rapper {
-  position: relative;
+.small-4.columns.image_rapper {
+  margin-top: 5%;
+}
+
+img.cat_image, img.item_image {
+  height: 213px;
+  width: 100%;
 }

@@ -39,7 +39,7 @@ RSpec.feature "the authenticated user" do
 
   scenario "cannot visit cart page when cart is empty" do
     visit root_path
-    page.find(".cart").click
+    page.find(".carts").click
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Must Add Item To View Cart Page")

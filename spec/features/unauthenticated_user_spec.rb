@@ -19,7 +19,7 @@ RSpec.feature "the unauthenticated user" do
 
     click_button("Add To Cart")
 
-    page.find(".cart").click
+    page.find(".carts").click
 
     expect(current_path).to eq(cart_path)
 
@@ -35,7 +35,7 @@ RSpec.feature "the unauthenticated user" do
 
     click_button("Add To Cart")
 
-    page.find(".cart").click
+    page.find(".carts").click
 
     expect(page).to have_content(item.title)
     expect(page).to have_content(item.price)

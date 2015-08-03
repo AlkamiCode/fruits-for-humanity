@@ -1,15 +1,16 @@
 $(document).ready(function(){
   $('.image_rapper').mouseenter(function() {
-       $(this).children('.cat_name').show();
+       $(this).children('.text_title').show();
 
-       $('.category_img').animate({
+       $(this).children(":first").animate({
            opacity: 0.5
        });
    });
-   $('.image_rapper').mouseleave(function() {
-       $(this).children('.cat_name').hide();
 
-       $('category_img').animate({
+   $('.image_rapper').mouseleave(function() {
+       $(this).children('.text_title').hide();
+
+       $(this).children(":first").animate({
            opacity: 1
        });
    });

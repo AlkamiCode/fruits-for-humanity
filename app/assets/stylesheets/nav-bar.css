@@ -6,3 +6,7 @@ div.row.navbar {
   margin-top: 1%;
   margin-bottom: 1%;
 }
+
+.medium-1.columns.right.cart {
+  margin-top: 20px;
+}
