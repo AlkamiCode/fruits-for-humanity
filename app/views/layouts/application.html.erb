@@ -13,18 +13,24 @@
   </head>
 
   <body>
-    <div class="row navbar">
-      <div class="medium-4 columns logo">
-      <% if current_admin? %>
-        <%= link_to image_tag("fruits-for-humanity-logo.png"), admin_categories_path %>
-      <% else %>
-        <%= link_to image_tag("fruits-for-humanity-logo.png"), root_path %>
-      <% end %>
+
+    <% if current_admin? %>
+      <div class="row admin navbar">
+        <div class="medium-12 columns">
+          <%= link_to "ADMIN", admin_categories_path, class: "admin-logo" %>
+        </div>
       </div>
-      <div class="medium-1 columns right cart">
-        <a href="/cart" class="carts"><i class="fi-shopping-cart"></i></a>
+    <% else %>
+      <div class="row navbar">
+        <div class="medium-4 columns logo">
+          <%= link_to image_tag("fruits-for-humanity-logo.png"), root_path %>
+        </div>
+        <div class="medium-1 columns right cart">
+          <a href="/cart" class="carts"><i class="fi-shopping-cart"></i></a>
+        </div>
       </div>
-    </div>
+    <% end %>
+
 
     <%= display_flash_messages %>
 

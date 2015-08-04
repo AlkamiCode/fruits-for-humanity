@@ -1,15 +1,14 @@
-<h1>ADMIN ORDER PAGE</h1>
+<h3>CUSTOMER ORDER</h3>
 
 <% @orders.each do |order| %>
   <ul class="accordion" data-accordion>
     <li class="accordion-navigation">
-      <a href="#panel<%= order.id %>"><%= order.created_at %><br>TOTAL COST:&#36;<%= order.total_price %><br><%= order.user.email_address %></a>
+      <a class="order-title" href="#panel<%= order.id %>"><%= order.created_at %><br>TOTAL COST:&#36;<%= order.total_price %><br><%= order.user.email_address %><br><%= order.status %></a>
       <div id="panel<%= order.id %>" class="content">
 
         <table class="responsive">
           <thead>
             <tr>
-              <th>Status</th>
               <th>Item Title</th>
               <th>Item ID</th>
               <th>Item Price</th>
@@ -20,7 +19,6 @@
           <tbody>
               <tr>
             <% order.order_items.each do |order_item| %>
-                <td><%= order.status %></td>
                 <td><%= order_item.item.title %></td>
                 <td><%= order_item.item.id %></td>
                 <td><%= order_item.item.price %></td>

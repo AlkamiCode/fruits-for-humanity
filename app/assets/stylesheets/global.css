@@ -7,3 +7,43 @@ a {
 a:hover, a:focus {
   color: orange;
 }
+
+h3 {
+  margin-top: 5%;
+  text-align: center;
+}
+
+form {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+}
+
+.row.admin.navbar {
+  text-align: center;
+  background-color: black;
+}
+
+a.admin-logo {
+  color: white;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.medium-4.columns.image_rapper {
+  margin-top: 5%;
+}
+
+.medium-3.columns {
+  margin-top: 5%;
+}
+
+.reveal-modal {
+  text-align: center;
+}
+
+a.button.round.tiny {
+    margin-top: 5%;
+    margin-left: 35%;
+    background-color: orange;
+}
