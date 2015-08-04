@@ -35,10 +35,7 @@ class Seed
     [
       "Fruit",
       "Vegitable",
-      "Root",
-      "Grass",
-      "Meat",
-      "Other"
+      "Mix"
     ]
   end
 
@@ -63,7 +60,18 @@ class Seed
       {title: "Smoothie", description: "delish", price: 13},
       {title: "Carrots", description: "full of fiber", price: 6},
       {title: "Cereal", description: "perfect for breakfast", price: 86},
-      {title: "Blackberries", description: "my favorite!", price: 5}
+      {title: "Blackberries", description: "my favorite!", price: 5},
+      {title: "cupcake", description: "mmmmm", price: 9},
+      {title: "muffin", description: "wholesome", price: 4.25},
+      {title: "Almond Butter",  description: "protein-packed", price: 52},
+      {title: "cookie dogh", description: "super expensive", price: 6},
+      {title: "Jamsky", description: "sweet!", price: 2},
+      {title: "Jelly welly", description: "sweeter!", price: 12},
+      {title: "Panorama", description: "fruity", price: 23},
+      {title: "table", description: "delish", price: 13},
+      {title: "squash", description: "full of fiber", price: 6},
+      {title: "oats", description: "perfect for breakfast", price: 86},
+      {title: "fresas", description: "my favorite!", price: 5}
     ].sample
   end
 end

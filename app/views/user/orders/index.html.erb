@@ -1,11 +1,10 @@
 <h1>MY ORDERS</h1>
 
-<% flex_count = 0 %>
 <% @orders.each do |order| %>
   <ul class="accordion" data-accordion>
     <li class="accordion-navigation">
-      <a href="#panel<%= flex_count %>"><%= order.created_at %><br>TOTAL COST:&#36;<%= order.total_price %></a>
-      <div id="panel<%= flex_count %>" class="content">
+      <a href="#panel<%= order.id %>"><%= order.created_at %><br>TOTAL COST:&#36;<%= order.total_price %></a>
+      <div id="panel<%= order.id %>" class="content">
 
         <table class="responsive">
           <thead>
@@ -35,5 +34,4 @@
       </div>
     </li>
   </ul>
-  <% flex_count += 1 %>
 <% end %>

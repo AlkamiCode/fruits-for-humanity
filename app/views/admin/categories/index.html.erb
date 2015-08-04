@@ -1,9 +1,7 @@
 <div class="row">
   <div class="medium-12 columns">
     <div class="row">
-      <div class="medium-12 jumbotron">
-        <%= image_tag("give-rasberries.jpg") %>
-      </div>
+      <%= image_tag("give-rasberries.jpg", class: "medium-12 columns") %>
     </div>
   </div>
 </div>
@@ -16,9 +14,9 @@
 
 <div class="row">
   <% @categories.each do |category| %>
-    <div class="small-4 columns category_links">
-      <%= image_tag(category.image.url) %>
-      <%= link_to category.name, admin_category_path(category.id) %>
+    <div class="medium-4 columns image_rapper">
+      <%= image_tag(category.image.url, class: "cat_image") %>
+      <div class="text_title"><%= link_to category.name, admin_category_path(category.id) %></div>
 
       <% category.items.any? { |item| item.available? } ? status = "Retire" : status = "Un-Retire" %>
       <%= link_to status, admin_category_path(category.id), method: :put, class: "button round tiny" %>

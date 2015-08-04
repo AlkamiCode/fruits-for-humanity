@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         if current_admin?
           redirect_to admin_categories_path
         else
-          redirect_to root_path
+          redirect_to :back
         end
     else
       flash[:error] = "Incorrect Login, Pleas Try Again"

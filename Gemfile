@@ -41,6 +41,7 @@ gem 'color_routes'
 gem 'traceroute'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'aasm'
 
 
 group :development, :test do
