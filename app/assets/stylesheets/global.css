@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
+
 a {
   color: black;
   line-height: inherit;
@@ -25,7 +27,7 @@ form {
 }
 
 a.admin-logo {
-  color: white;
+  color: orange;
   font-weight: bold;
   font-size: 1.7em;
 }
@@ -43,7 +45,18 @@ a.admin-logo {
 }
 
 a.button.round.tiny {
-    margin-top: 5%;
-    margin-left: 35%;
-    background-color: orange;
+  margin-top: 5%;
+  margin-left: 35%;
+  background-color: orange;
+}
+
+.alert-box {
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.logo-text-link {
+  font-family: 'Lily Script One', cursive;
+  font-size: 2.1em;
 }
