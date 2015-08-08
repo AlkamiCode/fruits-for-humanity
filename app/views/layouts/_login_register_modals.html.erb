@@ -1,0 +1,20 @@
+<div id="LoginModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <h3>Login</h3><br>
+      <%= f.text_field :username %>
+      <%= f.text_field :password %>
+      <%= f.submit "Login" %>
+    <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="RegisterModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <%= form_for(:user, url: users_path) do |f| %>
+      <h3>Register</h3><br>
+      <%= f.email_field :email_address, label: 'E-mail' %>
+      <%= f.text_field :username %>
+      <%= f.text_field :password %>
+      <%= f.submit "Create Account" %>
+    <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

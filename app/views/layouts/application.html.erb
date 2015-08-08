@@ -13,81 +13,9 @@
   </head>
 
   <body>
-
-    <% if current_admin? %>
-      <div class="row admin navbar">
-        <div class="medium-12 columns">
-          <%= link_to "ADMIN", admin_categories_path, class: "admin-logo" %>
-        </div>
-      </div>
-    <% else %>
-      <div class="row navbar">
-        <div class="medium-4 columns logo">
-          <%= link_to "Fruits For Humanity", root_path, class: "logo-text-link" %>
-        </div>
-        <div class="medium-1 columns right cart">
-          <a href="/cart" class="carts"><i class="fi-shopping-cart"></i></a>
-        </div>
-      </div>
-    <% end %>
-
-
+    <%= render "layouts/navbar" %>
     <%= display_flash_messages %>
-
-  <%= yield %>
-
-  <footer class="row">
-    <div class="medium-12 columns sticky_footsy">
-      <hr/>
-      <div class="row">
-        <div class="medium-6 columns">
-          <p>© Copyright Killin-it</p>
-        </div>
-        <div class="medium-6 columns">
-
-        <% if current_admin? %>
-          <ul class="inline-list right">
-            <li><a href="/admin/orders">Orders</a></li>
-            <li><a href="/admin/items/new" data-reveal-id="AdminAddsItemModal">Add Items</a></li>
-          </ul>
-        <% end %>
-
-          <ul class="inline-list right">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          <% if current_user %>
-            <% if !current_admin? %><li><a href="/user/orders">My Orders</a><% end %></li>
-            <li><a data-method="delete" href="/logout">Logout</a></li>
-          <% else %>
-            <li><a href="/users" data-reveal-id="RegisterModal">Register</a></li>
-            <li><a href="/login" data-reveal-id="LoginModal">Login</a></li>
-          <% end %>
-          </ul>
-
-        </div>
-      </div>
-    </div>
-
-    <div id="LoginModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-        <%= form_for(:session, url: login_path) do |f| %>
-          <h3>Login</h3><br>
-          <%= f.text_field :username %>
-          <%= f.text_field :password %>
-          <%= f.submit "Login" %>
-        <% end %>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
-
-    <div id="RegisterModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-        <%= form_for(:user, url: users_path) do |f| %>
-          <h3>Register</h3><br>
-          <%= f.email_field :email_address, label: 'E-mail' %>
-          <%= f.text_field :username %>
-          <%= f.text_field :password %>
-          <%= f.submit "Create Account" %>
-        <% end %>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
-  </footer>
+    <%= yield %>
+    <hr/>
   </body>
 </html>

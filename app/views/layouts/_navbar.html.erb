@@ -1,0 +1,48 @@
+<% if current_admin? %>
+  <div class="row admin navbar">
+    <div class="medium-12 columns">
+      <ul class="inline-list right">
+        <li><a data-method="delete" href="/logout">Logout</a></li>
+        <li><a href="/admin/orders">Orders</a></li>
+        <li><a href="/admin/items/new" data-reveal-id="AdminAddsItemModal">Add Items</a></li>
+        <li><%= link_to "ADMIN", admin_categories_path, class: "admin-logo" %></li>
+      </ul>
+    </div>
+  </div>
+<% elsif current_user %>
+  <div class="row navbar">
+    <div class="medium-6 columns">
+      <%= link_to "Fruits For Humanity", root_path, class: "logo-text-link" %>
+    </div>
+
+    <div class="medium-6 columns right">
+      <ul class="inline-list right">
+        <li><a data-method="delete" href="/logout">Logout</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+          <% if !current_admin? %>
+            <li><a href="/user/orders">My Orders</a></li>
+          <% end %>
+        <li><a href="/cart" class="carts"><i class="fi-shopping-cart"></i></a></li>
+      </ul>
+    </div>
+  </div>
+<% else %>
+  <div class="row navbar">
+    <div class="medium-6 columns">
+      <%= link_to "Fruits For Humanity", root_path, class: "logo-text-link" %>
+    </div>
+
+    <div class="medium-6 columns right">
+      <ul class="inline-list right">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="/users" data-reveal-id="RegisterModal">Register</a></li>
+        <li><a href="/login" data-reveal-id="LoginModal">Login</a></li>
+        <li><a href="/cart" class="carts"><i class="fi-shopping-cart"></i></a></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<%= render "layouts/login_register_modals" %>

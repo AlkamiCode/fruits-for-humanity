@@ -2,10 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -52,8 +49,6 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors'
   gem 'rspec-rails'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
 
