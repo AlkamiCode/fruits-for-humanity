@@ -18,12 +18,10 @@
         <td>
         <%= form_tag cart_item_path(cart_item.id), method: :put do %>
           <%= select_tag :quantity, options_for_select((1..10), cart_item.quantity) %>
-          <%= hidden_field_tag :item_id, cart_item.id %>
 
-          <%= button_tag(type: "submit", title: "Update Item Quantity", data: {tooltip: true}) do %>
+          <%= button_tag(type: "submit", title: "Update Item Quantity", data: {tooltip: true}, class: "refresh-icon") do %>
             <i class="fi-refresh"></i>
           <% end %>
-
 
           <%= link_to '<i class="fi-trash"></i>'.html_safe, cart_item_path(cart_item.id), method: :delete, title: "Delete Item", data: {tooltip: true} %>
         <% end %>

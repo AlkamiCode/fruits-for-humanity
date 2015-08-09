@@ -59,7 +59,7 @@ a.button.round.tiny {
 
 .logo-text-link {
   font-family: 'Lily Script One', cursive;
-  /*font-size: 2.1em;*/
+  font-size: 2.1em;
 }
 
 .hidden_input_field {
@@ -88,13 +88,22 @@ img.cat_image, img.item_image {
   width: 100%;
 }
 
-/*cart-in-nav-bar*/
+/*nav-bar*/
 
 .fi-shopping-cart {
-  font-size: 35px;
+  font-size: larger;
 }
 
-/*cart-show-page*/
+ul.inline-list {
+  font-family: 'Lily Script One', cursive;
+}
+
+.inline-list.right {
+  display: inline-block;
+  margin-top: 4%
+}
+
+/*cart-items-index-page*/
 
 .fi-refresh {
   font-size: 25px;
@@ -110,6 +119,10 @@ img.cat_image, img.item_image {
 
 button, .button {
   padding: initial;
+}
+
+.refresh-icon {
+  background-color: white;
 }
 
 /*order*/

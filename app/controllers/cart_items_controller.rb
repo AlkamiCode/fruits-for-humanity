@@ -22,7 +22,7 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    @cart.contents[params[:item_id]] = params[:quantity].to_i
+    @cart.contents[params[:id]] = params[:quantity].to_i
     redirect_to :back
   end
 
