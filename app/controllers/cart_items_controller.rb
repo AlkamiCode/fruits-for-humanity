@@ -12,8 +12,13 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    @cart_items  = @cart.items
-    @total_price = @cart.total_items_price(@cart_items)
+    if @cart.contents.empty?
+      flash[:notice] = "Must Add Item(s) To View Cart Page"
+      redirect_to root_path
+    else
+      @cart_items  = @cart.items
+      @total_price = @cart.total_items_price(@cart_items)
+    end
   end
 
   def update
@@ -22,12 +27,7 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    session[:cart].delete(params[:id])
-    if @cart.contents.empty?
-      flash[:notice] = "Your Cart Is Empty, Go Fill It Up!"
-      redirect_to root_path
-    else
-      redirect_to :back
-    end
+    @cart.contents.delete(params[:id])
+    redirect_to :back
   end
 end

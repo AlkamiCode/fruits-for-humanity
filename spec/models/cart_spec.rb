@@ -10,9 +10,9 @@ describe Cart do
     @item.save
 
     @item_quantity = 3
-
     @cart = Cart.new({})
     @cart.add_item(@item.id, @item_quantity)
+    @cart_items = @cart.items
   end
 
   it "stores contents" do
@@ -43,12 +43,7 @@ describe Cart do
     expect(cart.count_of("7")).to_not eq(7)
   end
 
-  it "updates item quantity" do
-    cart.update_item_quantity("#{item.id}", @item_quantity, 5)
-    expect(cart.contents).to eq({"#{item.id}" => 5})
-  end
-
   it "calculates total price of all items" do
-    expect(cart.total_items_price({item => @item_quantity})).to eq(5.97)
+    expect(cart.total_items_price(@cart_items)).to eq(5.97)
   end
 end
