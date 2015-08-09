@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :cart_items, only: [:update, :destroy, :create]
 
-  get    "/cart", to: "carts#show"
+  get    "/cart", to: "cart_items#index"
   delete "/cart/destroy", to: "carts#delete"
-  put    "/cart/update", to: "carts#update"
 
   resources :users, only: [:create]
 

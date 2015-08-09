@@ -5,6 +5,13 @@ class Cart
     @contents = initial_contents || {}
   end
 
+  def items
+    @contents.map do |item_id, quantity|
+      item = Item.find(item_id)
+      CartItem.new(item, quantity)
+    end
+  end
+
   def add_item(item_id, item_quantity)
     contents[item_id.to_s] ||= 0
     contents[item_id.to_s]  += item_quantity.to_i
@@ -18,19 +25,9 @@ class Cart
     contents[item_id.to_s]
   end
 
-  def update_item_quantity(item_id, initial_quantity, new_quantity)
-    if initial_quantity > new_quantity
-      difference = new_quantity - initial_quantity
-      self.add_item(item_id, difference)
-    else initial_quantity < new_quantity
-      difference = new_quantity - initial_quantity
-      self.add_item(item_id, difference)
-    end
-  end
-
   def total_items_price(items)
     items.reduce(0) do |sum, item|
-      sum += (item.first.price * item.last)
+      sum += (item.quantity * item.price)
     end
   end
 end

@@ -1,0 +1,50 @@
+<table class="responsive">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= image_tag(cart_item.image.url, size: "100x100") %></td>
+        <td><%= cart_item.title %></td>
+        <td><%= cart_item.description %></td>
+        <td>
+        <%= form_tag cart_item_path(cart_item.id), method: :put do %>
+          <%= select_tag :quantity, options_for_select((1..10), cart_item.quantity) %>
+          <%= hidden_field_tag :item_id, cart_item.id %>
+
+          <%= button_tag(type: "submit", title: "Update Item Quantity", data: {tooltip: true}) do %>
+            <i class="fi-refresh"></i>
+          <% end %>
+
+
+          <%= link_to '<i class="fi-trash"></i>'.html_safe, cart_item_path(cart_item.id), method: :delete, title: "Delete Item", data: {tooltip: true} %>
+        <% end %>
+        </td>
+
+        <td>&#36;<%= cart_item.price %></td>
+        <td>&#36;<%= cart_item.price * cart_item.quantity %></td>
+      </tr>
+    <% end %>
+
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="1"><%= button_to "Clear Cart", cart_destroy_path, method: :delete %></td>
+    <td colspan="1">
+      <% if current_user %>
+        <%=button_to "Checkout", user_orders_path, params: {total_price: @total_price } %>
+      <% else %>
+        <% flash[:notice] = "Register Or Login To Checkout" %>
+      <% end %>
+    </td>
+    <td class="price">&#36;<%= @total_price %></td>
+  </tbody>
+</table>

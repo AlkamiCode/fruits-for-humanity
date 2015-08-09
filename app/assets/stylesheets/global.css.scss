@@ -1,0 +1,132 @@
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
+
+a {
+  color: black;
+  line-height: inherit;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: orange;
+}
+
+h3 {
+  margin-top: 5%;
+  text-align: center;
+}
+
+form {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+}
+
+.row.admin.navbar {
+  text-align: center;
+  background-color: black;
+}
+
+a.admin-logo {
+  color: orange;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.medium-4.columns.image_rapper {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.medium-3.columns {
+  margin-top: 5%;
+}
+
+.reveal-modal {
+  text-align: center;
+}
+
+a.button.round.tiny {
+  margin-top: 5%;
+  margin-left: 35%;
+  background-color: orange;
+}
+
+.alert-box {
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.logo-text-link {
+  font-family: 'Lily Script One', cursive;
+  /*font-size: 2.1em;*/
+}
+
+.hidden_input_field {
+  display: none;
+}
+
+/*category-index-page*/
+
+.quantity-input>input {
+  display: inline-block;
+  width: 60px;
+}
+
+.text_title {
+  display: none;
+  position: absolute;
+  top: 40%;
+  width: 90%;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+img.cat_image, img.item_image {
+  height: 213px;
+  width: 100%;
+}
+
+/*cart-in-nav-bar*/
+
+.fi-shopping-cart {
+  font-size: 35px;
+}
+
+/*cart-show-page*/
+
+.fi-refresh {
+  font-size: 25px;
+  color: black;
+  margin-left: 10px;
+}
+
+.fi-trash {
+  font-size: 25px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+button, .button {
+  padding: initial;
+}
+
+/*order*/
+
+a.order-title {
+  text-align: center;
+}
+
+/*new-user-and-login-form*/
+
+#registerModal, #loginModal {
+  text-align: center;
+}
+
+/* Mobile */
+@media only screen and (min-width: 800px) {
+  #registerModal, #loginModal {
+    width: 40%;
+  }
+}

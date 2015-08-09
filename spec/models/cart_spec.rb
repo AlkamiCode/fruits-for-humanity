@@ -1,7 +1,7 @@
 require_relative "../../app/models/cart"
 require "rails_helper"
 
-RSpec.describe Cart do
+describe Cart do
   attr_reader :cart, :item
 
   before (:each) do
