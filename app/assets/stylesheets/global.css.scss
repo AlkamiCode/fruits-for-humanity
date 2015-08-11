@@ -1,13 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
 
+$size: 25px;
+
 a {
   color: black;
   line-height: inherit;
   text-decoration: none;
-}
-
-a:hover, a:focus {
-  color: orange;
+  &:hover {
+    color: orange;
+  }
 }
 
 h3 {
@@ -59,7 +60,7 @@ a.button.round.tiny {
 
 .logo-text-link {
   font-family: 'Lily Script One', cursive;
-  font-size: 2.1em;
+  font-size: 1.7em;
 }
 
 .hidden_input_field {
@@ -100,7 +101,7 @@ ul.inline-list {
 
 .inline-list.right {
   display: inline-block;
-  margin-top: 4%
+  margin-top: 3%
 }
 
 /*cart-items-index-page*/
@@ -137,9 +138,26 @@ a.order-title {
   text-align: center;
 }
 
+
+// Modals
+input.small.radius.success.button {
+  background-color: orange;
+}
+
+@media only screen and (min-width: 1000px) {
+  #RegisterModal, #LoginModal, #AdminAddsItemModal {
+    width: 40%;
+    form {
+      width: 70%;
+    }
+    button {
+      background-color: orange;
+    }
+  }
+}
+
 /* Mobile */
 @media only screen and (min-width: 800px) {
-  #registerModal, #loginModal {
-    width: 40%;
+  #RegisterModal, #LoginModal {
   }
 }

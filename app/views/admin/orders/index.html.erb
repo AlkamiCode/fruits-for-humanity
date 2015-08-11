@@ -3,7 +3,7 @@
 <% @orders.each do |order| %>
   <ul class="accordion" data-accordion>
     <li class="accordion-navigation">
-      <a class="order-title" href="#panel<%= order.id %>"><%= order.created_at %><br>TOTAL COST:&#36;<%= order.total_price %><br><%= order.user.email_address %><br><%= order.status %></a>
+      <a class="order-title" href="#panel<%= order.id %>"><%= order.created_at %><br>TOTAL COST:&nbsp;&#36;<%= order.total_price %><br><%= order.user.email_address %><br><%= order.status %></a>
       <div id="panel<%= order.id %>" class="content">
 
         <table class="responsive">

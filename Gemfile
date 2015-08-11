@@ -56,3 +56,7 @@ group :assets do
   gem 'foundation-icons-sass-rails'
 end
 
+group :production do
+  gem 'puma'
+end
+

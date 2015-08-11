@@ -40,7 +40,7 @@
       <% if current_user %>
         <%=button_to "Checkout", user_orders_path, params: {total_price: @total_price } %>
       <% else %>
-        <% flash[:notice] = "Register Or Login To Checkout" %>
+        <%# flash[:notice] = "Register Or Login To Checkout" %>
       <% end %>
     </td>
     <td class="price">&#36;<%= @total_price %></td>

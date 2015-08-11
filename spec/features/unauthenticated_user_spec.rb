@@ -153,6 +153,7 @@ RSpec.feature "the unauthenticated user" do
         fill_in "E-mail",   with: "dmitryiscool@gmail.com"
         fill_in "Username", with: "dmitry"
         fill_in "Password", with: "rocks"
+        fill_in "Password confirmation", with: "rocks"
         click_button "Create Account"
       end
 

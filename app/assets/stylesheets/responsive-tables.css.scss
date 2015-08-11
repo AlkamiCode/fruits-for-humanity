@@ -1,31 +1,3 @@
-/* Foundation v2.1.4 http://foundation.zurb.com */
-/* Artfully masterminded by ZURB  */
-
-/* --------------------------------------------------
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-
-
-/* -----------------------------------------
-   Shared Styles
------------------------------------------ */
-
-table th {
-	font-weight: bold;
-	background-color: lightyellow;
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
-	border-bottom: 1px solid black;
-}
-table td, table th {
-	padding: 9px 10px;
-	text-align: left;
-}
-
 table {
 	margin-top: 40px;
 	border-top-right-radius: 20px;
@@ -33,6 +5,13 @@ table {
 	margin-left:auto;
   margin-right:auto;
   width: 80%;
+  th {
+			font-weight: bold;
+			background-color: lightyellow;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+			border-bottom: 1px solid black;
+		 }
 }
 
 /* Mobile */
@@ -41,7 +20,6 @@ table {
 	table.responsive {
 		margin-bottom: 0;
 	}
-
 
 	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
 	.pinned table { border-right: none; border-left: none; width: 100%; }
