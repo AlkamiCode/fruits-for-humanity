@@ -1,4 +1,10 @@
-module SignInHelpers
+module TestHelpers
+
+  def add_to_cart(quantity="1")
+    select quantity, from: "quantity"
+    click_button("Add To Cart")
+  end
+
   def sign_in_as(user)
     user
     visit root_path
@@ -15,7 +21,7 @@ module SignInHelpers
       username: "admin",
       password: "rules",
       email_address: "admin@gmail.com",
-      role: 1
+      role: 1)
   end
 
   def user

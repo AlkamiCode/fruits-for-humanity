@@ -1,4 +1,5 @@
 require "rails_helper"
+require_relative "../support/test_helpers"
 
 RSpec.feature "the unauthenticated user" do
   attr_accessor :item, :category
@@ -10,14 +11,14 @@ RSpec.feature "the unauthenticated user" do
     item.save!
   end
 
+  include TestHelpers
+
   scenario "can add an item with a category to its cart" do
     visit root_path
 
-    expect(current_path).to eq(root_path)
-
     click_link(item.categories.first.name)
 
-    click_button("Add To Cart")
+    add_to_cart
 
     page.find(".carts").click
 
@@ -48,23 +49,16 @@ RSpec.feature "the unauthenticated user" do
   scenario "can add multiple quantities of an item to a cart" do
     visit category_path(category.id)
 
-    select "3", from: "quantity"
+    add_to_cart("3")
 
-    click_button("Add To Cart")
-
-    expect(page).to have_content("5")
-
-    visit cart_path
-
-    expect(page).to have_content("5")
+    # expect(@cart.count_all).to eq(3)
+    expect(page).to have_content("You now have 3")
   end
 
   scenario "can update item quantity before checking out" do
     visit category_path(category.id)
 
-    select "4", from: "quantity"
-
-    click_button("Add To Cart")
+    add_to_cart("4")
 
     visit cart_path
 
@@ -80,9 +74,7 @@ RSpec.feature "the unauthenticated user" do
   scenario "can remove a cart_item from its cart" do
     visit category_path(category.id)
 
-    select "3", from: "quantity"
-
-    click_button("Add To Cart")
+    add_to_cart("3")
 
     visit cart_path
 
@@ -96,9 +88,7 @@ RSpec.feature "the unauthenticated user" do
   scenario "can calculate total cost per item" do
     visit category_path(category.id)
 
-    select "6", from: "quantity"
-
-    click_button("Add To Cart")
+    add_to_cart("6")
 
     visit cart_path
 
@@ -112,12 +102,10 @@ RSpec.feature "the unauthenticated user" do
     item1.save!
 
     visit category_path(category.id)
-    select "3", from: "quantity"
-    click_button("Add To Cart")
+    add_to_cart("3")
 
     visit category_path(category1.id)
-    select "4", from: "quantity"
-    click_button("Add To Cart")
+    add_to_cart("4")
 
     visit cart_path
 
@@ -143,11 +131,9 @@ RSpec.feature "the unauthenticated user" do
 
   scenario "after user registers items are still in cart" do
     visit category_path(category.id)
-    select "4", from: "quantity"
-    click_button("Add To Cart")
+    add_to_cart("4")
 
     visit root_path
-
 
       within ("#RegisterModal") do
         fill_in "E-mail",   with: "dmitryiscool@gmail.com"
@@ -156,7 +142,6 @@ RSpec.feature "the unauthenticated user" do
         fill_in "Password confirmation", with: "rocks"
         click_button "Create Account"
       end
-
 
       expect(page).to have_content("Welcome! dmitry")
 
