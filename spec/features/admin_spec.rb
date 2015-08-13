@@ -3,24 +3,22 @@ require "rails_helper"
 RSpec.feature "Admin" do
 
   before (:each) do
-    @admin = User.create(username: "admin",
-                        password: "rules",
-                        email_address: "admin@gmail.com",
-                        role: 1)
-
-    visit root_path
-
-    within ("#LoginModal") do
-      fill_in "Username", with: "admin"
-      fill_in "Password", with: "rules"
-      click_button "Login"
-    end
+    login_admin("admin", "rules")
   end
 
-  scenario "logs in and sees Admin home page" do
+  include FeatureSpecHelpers
+
+  scenario "sees Admin Nav Bar" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit admin_orders_path
-    assert page.has_content?("Orders")
+  end
+
+  scenario "views user orders" do
+    click_link("Logout")
+    create_user_order
+    click_link("Orders")
+
+    expect(page).to have_content("cool item")
   end
 
   scenario "creates item in existing category" do
@@ -52,28 +50,25 @@ RSpec.feature "Admin" do
   end
 
   scenario "retires item from user view" do
-    item = Item.new(title: "Orange", description: "it's orange", price: 2.00, available: true)
-    category = item.categories.new(name: "Fruit")
-    category.save!
-    item.save!
+    create_item("Orange", "It's orange", 2.00, "Fruit")
 
-    visit admin_category_path(category.id)
-    expect(page).to have_content(item.title)
-    expect(item.available).to eq(true)
+    visit admin_category_path(@category.id)
+    expect(page).to have_content(@item.title)
+    expect(@item.available).to eq(true)
 
     click_button("Update")
 
-    within ("#Update-item-#{item.id}") do
+    within ("#Update-item-#{@item.id}") do
       select false, from: "Available"
       click_button "Update"
     end
-    item.reload
+    @item.reload
 
-    expect(item.available).to eq(false)
+    expect(@item.available).to eq(false)
 
     click_link("Logout")
 
-    visit category_path(category.id)
+    visit category_path(@category.id)
 
     expect(page).to have_content("This Category Is Empty")
   end
@@ -101,23 +96,20 @@ RSpec.feature "Admin" do
   end
 
   scenario "updates item attributes" do
-    item = Item.new(title: "Orange", description: "it's orange", price: 2.00, available: true)
-    category = item.categories.new(name: "Fruit")
-    category.save!
-    item.save!
+    create_item("Orange", "It's orange", 2.00, "Fruits")
 
-    visit admin_category_path(category.id)
+    visit admin_category_path(@category.id)
     click_button('Update')
 
-    within ("#Update-item-#{item.id}") do
+    within ("#Update-item-#{@item.id}") do
       fill_in "Title", with: "Green"
       fill_in "Price", with: 2.50
       click_button "Update"
     end
-    item.reload
+    @item.reload
 
-    expect(item.title).to eq("Green")
-    expect(item.price).to eq(2.50)
+    expect(@item.title).to eq("Green")
+    expect(@item.price).to eq(2.50)
   end
 end
 

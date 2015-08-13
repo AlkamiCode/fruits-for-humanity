@@ -3,24 +3,19 @@ require "rails_helper"
 RSpec.feature "the authenticated user" do
 
   before (:each) do
-    user = User.create(username: "dmitry", password: "kicks ass", email_address: "dmitryiscool@address.com")
-
-    visit root_path
-
-    within ("#LoginModal") do
-      fill_in "Username", with: "dmitry"
-      fill_in "Password", with: "kicks ass"
-      click_button "Login"
-    end
+    login_non_admin("dmitry", "rocks")
   end
+
+  include FeatureSpecHelpers
 
   scenario "can login" do
     expect(page).to have_content("Welcome Back dmitry")
+    # expect(@user).to eq(@current_user)
   end
 
   scenario "can logout" do
     click_link("Logout")
-
+    # expect(@user).to_not eq(@current_user)
     expect(page).to have_content("Register")
     expect(page).to have_content("Login")
     expect(page).to_not have_content("Logout")
@@ -45,14 +40,10 @@ RSpec.feature "the authenticated user" do
   end
 
   scenario "views order details after checking out" do
-    item = Item.new(title: "Apricot", description: "it's orange", price: 2.00)
-    category = item.categories.new(name: "Fruit")
-    category.save!
-    item.save!
+    create_item("Apricot", "it's orange", 2.00, "Fruit")
 
-    visit category_path(category.id)
-    select "3", from: "quantity"
-    click_button("Add To Cart")
+    visit category_path(@category.id)
+    add_to_cart(3)
 
     visit cart_path
 
@@ -60,17 +51,14 @@ RSpec.feature "the authenticated user" do
       click_button("Checkout")
     end.to change { Order.count }.from(0).to(1)
 
-    expect(page).to have_content(item.title)
-    expect(page).to have_content(item.price)
+    expect(page).to have_content(@item.title)
+    expect(page).to have_content(@item.price)
   end
 
   scenario "sees 404 error in admin area" do
-    user = User.create(username: "joerugular",
-                       password: "password",
-                       email_address: "joesmo@yahoo.com",
-                       role: 0)
+    login_non_admin("joeregular", "password")
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     visit admin_orders_path
 
     expect(page).to have_content("The page you were looking for doesn't exist")

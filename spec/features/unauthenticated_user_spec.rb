@@ -1,5 +1,5 @@
 require "rails_helper"
-require_relative "../support/test_helpers"
+
 
 RSpec.feature "the unauthenticated user" do
   attr_accessor :item, :category
@@ -11,7 +11,7 @@ RSpec.feature "the unauthenticated user" do
     item.save!
   end
 
-  include TestHelpers
+  include FeatureSpecHelpers
 
   scenario "can add an item with a category to its cart" do
     visit root_path
@@ -44,14 +44,15 @@ RSpec.feature "the unauthenticated user" do
     click_button("Clear Cart")
 
     expect(page).to_not have_content(item.title)
+    expect(page).to_not have_content(item.price)
   end
 
-  scenario "can add multiple quantities of an item to a cart" do
+  scenario "can add multiple quantity of an item to a cart" do
     visit category_path(category.id)
 
     add_to_cart("3")
 
-    # expect(@cart.count_all).to eq(3)
+    # expect(@cart.items.last.quantity).to eq(3)
     expect(page).to have_content("You now have 3")
   end
 
@@ -62,13 +63,14 @@ RSpec.feature "the unauthenticated user" do
 
     visit cart_path
 
-    expect(page).to have_content("4")
+    expect(page).to have_content("$8.0")
 
     select "3", from: "quantity"
 
     click_button("Update")
 
-    expect(page).to have_content("3")
+    expect(page).to_not have_content("$8.0")
+    expect(page).to have_content("$6.0")
   end
 
   scenario "can remove a cart_item from its cart" do
@@ -92,7 +94,7 @@ RSpec.feature "the unauthenticated user" do
 
     visit cart_path
 
-    expect(page).to have_content(12.0)
+    expect(page).to have_content("$12.0")
   end
 
   scenario "can calculate total cost of all items in cart" do
@@ -109,9 +111,8 @@ RSpec.feature "the unauthenticated user" do
 
     visit cart_path
 
-    expect(page).to have_content(6.0)
-    expect(page).to have_content(14.0)
-    expect(page).to have_content(20.0)
+    expect(page).to have_content("$14.0")
+    within('td.price') { expect(page).to have_content("$20.0")}
   end
 
   scenario "receives error message when registration field is empty" do
@@ -133,17 +134,9 @@ RSpec.feature "the unauthenticated user" do
     visit category_path(category.id)
     add_to_cart("4")
 
-    visit root_path
+    register_user("dmitryiscool@gmail.com", "dmitry", "rocks")
 
-      within ("#RegisterModal") do
-        fill_in "E-mail",   with: "dmitryiscool@gmail.com"
-        fill_in "Username", with: "dmitry"
-        fill_in "Password", with: "rocks"
-        fill_in "Password confirmation", with: "rocks"
-        click_button "Create Account"
-      end
-
-      expect(page).to have_content("Welcome! dmitry")
+    expect(page).to have_content("Welcome! dmitry")
 
     visit cart_path
 
