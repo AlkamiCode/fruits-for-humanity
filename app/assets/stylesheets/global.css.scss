@@ -16,17 +16,6 @@ h3 {
   text-align: center;
 }
 
-form {
-  width: 60%;
-  text-align: center;
-  margin: auto;
-}
-
-.row.admin.navbar {
-  text-align: center;
-  background-color: black;
-}
-
 a.admin-logo {
   color: orange;
   font-weight: bold;
@@ -67,6 +56,21 @@ a.button.round.tiny {
   display: none;
 }
 
+/* category-show-page */
+
+.card-section {
+  border-bottom: 1px solid orange;
+  border-radius: 5%;
+}
+
+.card.medium-3.columns {
+  text-align: center;
+}
+
+select#quantity {
+  width: initial;
+}
+
 /*category-index-page*/
 
 .quantity-input>input {
@@ -89,11 +93,15 @@ img.cat_image, img.item_image {
   width: 100%;
 }
 
-/*nav-bar*/
-
-.fi-shopping-cart {
-  font-size: larger;
+.column + .column:last-child,
+.columns + .column:last-child, .column +
+.columns:last-child,
+.columns +
+.columns:last-child {
+  float: left;
 }
+
+/*nav-bar*/
 
 ul.inline-list {
   font-family: 'Lily Script One', cursive;
@@ -101,15 +109,33 @@ ul.inline-list {
 
 .inline-list.right {
   display: inline-block;
-  margin-top: 3%
+  margin-top: 1%;
 }
 
-/*cart-items-index-page*/
+.row.navbar {
+  border-bottom: 2px solid orange;
+  border-bottom-style: dotted;
+  margin-bottom: 1%;
+}
+
+.row.admin.navbar {
+  text-align: center;
+  background-color: black;
+}
+
+/* buttons and icons */
+
+.fi-shopping-cart {
+  font-size: larger;
+}
 
 .fi-refresh {
   font-size: 25px;
   color: black;
   margin-left: 10px;
+  &:hover {
+    color: orange;
+  }
 }
 
 .fi-trash {
@@ -118,12 +144,20 @@ ul.inline-list {
   margin-left: 10px;
 }
 
-button, .button {
-  padding: initial;
+/* buttons */
+
+button.refresh-icon {
+    background-color: white;
 }
 
-.refresh-icon {
-  background-color: white;
+button, .button {
+  padding: initial;
+  background-color: orange;
+  outline: 0;
+  &:hover {
+    color: black;
+    background-color: white;
+  }
 }
 
 /*order*/
@@ -132,14 +166,19 @@ a.order-title {
   text-align: center;
 }
 
-/*new-user-and-login-form*/
+/* Modals */
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 #registerModal, #loginModal {
   text-align: center;
 }
 
 
-// Modals
+/* Modals */
 input.small.radius.success.button {
   background-color: orange;
 }
