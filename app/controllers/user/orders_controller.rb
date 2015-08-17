@@ -11,7 +11,7 @@ class User::OrdersController < User::BaseController
     end
 
     session[:cart] = {}
-    redirect_to new_charge_path(total_price: order.total_price)
+    redirect_to user_orders_path
   end
 
   def index

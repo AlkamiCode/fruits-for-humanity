@@ -162,6 +162,9 @@ button, .button {
 
 a.order-title {
   text-align: center;
+  &:hover {
+    color: orange;
+  }
 }
 
 .pay-link {

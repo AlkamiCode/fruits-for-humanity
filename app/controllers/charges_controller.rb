@@ -1,27 +1,29 @@
 class ChargesController < ApplicationController
   def new
-    @total_price = params[:total_price].to_f * 100
   end
 
   def create
-    binding.pry
-    # Amount in cents
-    @amount = 500
+    order  = Order.find(params[:order_id])
+    amount = order.total_price
 
     customer = Stripe::Customer.create(
-      :email => 'example@stripe.com',
+      :email => params[:stripeEmail],
       :card  => params[:stripeToken]
     )
 
-    charge = Stripe::Charge.create(
+    if Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
+      :amount      => amount.to_i,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
-    )
+      )
+      order.pay!
+      flash[:notice] = "Thanks For The Payment!"
+      redirect_to :back
+    end
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to charges_path
-  end
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to :back
+    end
 end
