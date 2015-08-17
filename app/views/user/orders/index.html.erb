@@ -3,13 +3,17 @@
 <% @orders.each do |order| %>
   <ul class="accordion" data-accordion>
     <li class="accordion-navigation">
-      <a class="order-title" href="#panel<%= order.id %>"><%= order.created_at %><br>TOTAL COST:&nbsp;&#36;<%= order.total_price %></a>
+      <a class="order-title" href="#panel<%= order.id %>"><%= order.created_at %><br>TOTAL COST:&nbsp;&#36;<%= "%.2f" % order.total_price %><br>Status:&nbsp;<%= order.status %></a>
+        <% if order.status == "ordered" %>
+          <div class="pay-link">
+            <u><%= link_to "Complete Your Purchase", new_charge_path %></u>
+          </div>
+        <% end %>
       <div id="panel<%= order.id %>" class="content">
-
         <table class="responsive">
           <thead>
             <tr>
-              <th>Status</th>
+              <th>Picture</th>
               <th>Item Title</th>
               <th>Item Description</th>
               <th>Item Price</th>
@@ -18,16 +22,16 @@
             </tr>
           </thead>
           <tbody>
-              <tr>
-            <% order.order_items.each do |order_item| %>
-                <td><%= order.status %></td>
+            <tr>
+              <% order.order_items.each do |order_item| %>
+                <td><%= image_tag(order_item.item.image.url, size: "100x100") %></td>
                 <td><%= order_item.item.title %></td>
                 <td><%= order_item.item.description %></td>
                 <td><%= order_item.item.price %></td>
                 <td><%= order_item.quantity %></td>
                 <td><%= order_item.item.price * order_item.quantity %></td>
-              </tr>
-            <% end %>
+            </tr>
+              <% end %>
           </tbody>
         </table>
 

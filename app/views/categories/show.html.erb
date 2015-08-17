@@ -8,11 +8,11 @@
           </div>
           <div class="card-section">
             <p><%= item.description %></p>
-            <p>&#36;<%= item.price %></p>
+            <p>&#36;<%= "%.2f" % item.price %></p>
             <%= form_tag cart_items_path, method: :post do %>
               <%= select_tag :quantity, options_for_select(1..10) %>
               <%= hidden_field_tag :item_id, item.id %>
-              <%= submit_tag "Add To Cart", class: "button round tiny" %>
+              <%= submit_tag "Add To Cart", class: "tiny button radius" %>
             <% end %>
           </div>
       </div>

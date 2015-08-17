@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     resources :items, only: [:create, :update]
     resources :orders, only: [:index]
   end
+
+  resources :charges, only: [:new, :create]
 end

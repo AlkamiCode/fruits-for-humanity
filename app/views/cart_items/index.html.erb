@@ -27,22 +27,22 @@
         <% end %>
         </td>
 
-        <td>&#36;<%= cart_item.price %></td>
-        <td>&#36;<%= cart_item.price * cart_item.quantity %></td>
+        <td>&#36;<%= "%.2f" % cart_item.price %></td>
+        <td>&#36;<%= "%.2f" % (cart_item.price * cart_item.quantity) %></td>
       </tr>
     <% end %>
 
     <td></td>
     <td></td>
     <td></td>
-    <td colspan="1"><%= button_to "Clear Cart", cart_destroy_path, method: :delete %></td>
+    <td colspan="1"><%= button_to "Clear Cart", cart_destroy_path, method: :delete, class: "tiny button radius" %></td>
     <td colspan="1">
       <% if current_user %>
-        <%=button_to "Checkout", user_orders_path, params: {total_price: @total_price } %>
+        <%=button_to "Checkout", user_orders_path, params: {total_price: @total_price }, class: "tiny button radius" %>
       <% else %>
-       Register or Login To Checkout
+       <a href="/login" data-reveal-id="LoginModal"><u>Login</u></a>
       <% end %>
     </td>
-    <td class="price">&#36;<%= @total_price %></td>
+    <td class="price">&#36;<%= "%.2f" % @total_price %></td>
   </tbody>
 </table>

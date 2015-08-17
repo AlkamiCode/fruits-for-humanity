@@ -40,6 +40,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'aasm'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
   gem 'pry-rails'
