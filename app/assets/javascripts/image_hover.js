@@ -11,7 +11,7 @@ $(document).ready(function(){
        $(this).children('.text_title').hide();
 
        $(this).children(":first").animate({
-           opacity: 1
+           opacity: .9
        });
    });
 });

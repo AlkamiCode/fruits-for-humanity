@@ -1,3 +1,3 @@
 $(document).ready(function(){
-  $('.alert-box').fadeOut(4000);
+  $('.alert-box').fadeOut(5000);
 });

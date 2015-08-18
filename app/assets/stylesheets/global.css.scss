@@ -91,6 +91,7 @@ select#quantity {
 img.cat_image, img.item_image {
   height: 213px;
   width: 100%;
+  opacity: .9;
 }
 
 .column + .column:last-child,
@@ -104,6 +105,10 @@ img.cat_image, img.item_image {
 .medium-4.columns.image_rapper {
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+img.medium-12.columns.show.for.small {
+  opacity: .9;
 }
 
 /*nav-bar*/

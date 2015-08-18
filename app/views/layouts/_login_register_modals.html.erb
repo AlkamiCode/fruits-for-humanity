@@ -2,7 +2,7 @@
     <%= form_for(:session, url: login_path) do |f| %>
       <h3>Login</h3><br>
       <%= f.text_field :username %>
-      <%= f.text_field :password %>
+      <%= f.text_field :password, type: "password"%>
       <%= f.submit "Login" %>
     <% end %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -14,8 +14,8 @@
       <h3>Register</h3><br>
       <%= f.email_field :email_address, label: 'E-mail' %>
       <%= f.text_field :username %>
-      <%= f.text_field :password %>
-      <%= f.text_field :password_confirmation %>
+      <%= f.text_field :password, type: "password" %>
+      <%= f.text_field :password_confirmation, type: "password" %>
       <%= f.submit "Create Account" %>
     <% end %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
