@@ -1,20 +1,16 @@
 <div class="row">
   <% @category_items.each do |item| %>
-    <div class="medium-3 columns image_rapper">
-      <%= image_tag(item.image.url, class: "item_image") %>
-      <div class="text_title">
-        <a href="" data-reveal-id="item-<%= item.id %>"><%= item.title %></a>
+    <div class="card medium-3 columns">
+        <%= image_tag(item.image.url, class: "item_image") %>
+          <div class="card-divider">
+            <h5><%= item.title %></h5>
+          </div>
+          <div class="card-section">
+            <p><%= item.description %></p>
+            <p>&#36;<%= "%.2f" % item.price %></p>
+          </div>
+          <a href="" data-reveal-id="Update-item-<%= item.id %>" class="tiny button radius">Update</a>
       </div>
-
-      <a href="" data-reveal-id="Update-item-<%= item.id %>" class="tiny button radius">Update</a>
-    </div>
-
-    <div id="item-<%= item.id %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-      <h2 id="modalTitle"><%= item.title %></h2>
-        <p class="lead"><%= item.description %></p>
-        <p><%= item.price %></p>
-          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
 
     <div id="Update-item-<%= item.id %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
           <%= form_for(:item, url: admin_item_path(item.id), method: :put, html: {multipart: true}) do |f| %>

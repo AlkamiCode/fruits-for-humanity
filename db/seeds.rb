@@ -41,7 +41,7 @@ class Seed
 
   def random_item
     [
-      {title: "Granola", description: "wholesome", price: 1.50},
+      {title: "Purely Fruit", description: "wholesome", price: 1.50},
       {title: "Apple", description: "nutritious and sweet", price: 3.50},
       {title: "Grapefruit", description: "healthy and sour", price: 2.00},
       {title: "Banana", description: "fatty and yellow", price: 14.00},
