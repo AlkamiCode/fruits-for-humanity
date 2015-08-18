@@ -1,4 +1,5 @@
 $size: 25px;
+$georgia-font: Georgia, serif;
 
 a {
   color: black;
@@ -9,28 +10,10 @@ a {
   }
 }
 
-h3 {
-  margin-top: 5%;
-  text-align: center;
-}
-
 a.admin-logo {
   color: orange;
   font-weight: bold;
   font-size: 1.7em;
-}
-
-.medium-4.columns.image_rapper {
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.medium-3.columns {
-  margin-top: 5%;
-}
-
-.reveal-modal {
-  text-align: center;
 }
 
 a.button.round.tiny {
@@ -54,15 +37,34 @@ a.button.round.tiny {
   display: none;
 }
 
+/* order index page */
+
+h3 {
+  margin-top: 5%;
+  text-align: center;
+  font-family: $georgia-font;
+}
+
 /* category-show-page */
 
 .card-section {
   border-bottom: 1px solid orange;
   border-radius: 5%;
+  p {
+    font-family: $georgia-font;
+  }
+}
+
+h5 {
+  font-family: $georgia-font;
 }
 
 .card.medium-3.columns {
   text-align: center;
+}
+
+.medium-3.columns {
+  margin-top: 5%;
 }
 
 select#quantity {
@@ -97,6 +99,11 @@ img.cat_image, img.item_image {
 .columns +
 .columns:last-child {
   float: left;
+}
+
+.medium-4.columns.image_rapper {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 /*nav-bar*/
@@ -182,6 +189,9 @@ form {
   text-align: center;
 }
 
+.reveal-modal {
+  text-align: center;
+}
 
 /* Modals */
 input.small.radius.success.button {
