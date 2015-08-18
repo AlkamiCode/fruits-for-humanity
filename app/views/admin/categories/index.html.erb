@@ -7,12 +7,6 @@
 </div>
 
 <div class="row">
-  <div class="medium-12 columns show-for-small">
-    <img src="http://placehold.it/1200x700&text=Mobile Header">
-  </div>
-</div>
-
-<div class="row">
   <% @categories.each do |category| %>
     <div class="medium-4 columns image_rapper">
       <%= image_tag(category.image.url, class: "cat_image") %>
