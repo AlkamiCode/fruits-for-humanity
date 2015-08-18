@@ -17,6 +17,7 @@ Bundler.require(*Rails.groups)
 
 module ShmoozeeHaven
   class Application < Rails::Application
+    # This adds the fonts folder to the asset pipeline or atleast it should....
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # Settings in config/environments/* take precedence over those specified here.
