@@ -185,7 +185,7 @@ form {
   margin-right: auto;
 }
 
-#registerModal, #loginModal {
+#registerModal, #loginModal, #Update-item {
   text-align: center;
 }
 
@@ -199,7 +199,7 @@ input.small.radius.success.button {
 }
 
 @media only screen and (min-width: 1000px) {
-  #RegisterModal, #LoginModal, #AdminAddsItemModal {
+  #RegisterModal, #LoginModal, #AdminAddsItemModal, #Update-item {
     width: 40%;
     form {
       width: 70%;
