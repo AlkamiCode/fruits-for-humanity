@@ -32,7 +32,7 @@
           <tbody>
             <tr>
               <% order.order_items.each do |order_item| %>
-                <td><%= image_tag(order_item.item.image.url, size: "100x100") %></td>
+                <td><%= image_tag(order_item.item.image.url, size: "800x800") %></td>
                 <td><%= order_item.item.title %></td>
                 <td><%= order_item.item.description %></td>
                 <td><%= order_item.item.price %></td>

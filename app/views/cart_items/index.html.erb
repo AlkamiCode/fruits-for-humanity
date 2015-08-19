@@ -12,18 +12,18 @@
   <tbody>
     <% @cart_items.each do |cart_item| %>
       <tr>
-        <td><%= image_tag(cart_item.image.url, size: "100x100") %></td>
+        <td><%= image_tag(cart_item.image.url, size: "1000x1000") %></td>
         <td><%= cart_item.title %></td>
         <td><%= cart_item.description %></td>
         <td>
         <%= form_tag cart_item_path(cart_item.id), method: :put do %>
           <%= select_tag :quantity, options_for_select((1..10), cart_item.quantity) %>
 
-          <%= button_tag(type: "submit", title: "Update Item Quantity", data: {tooltip: true}, class: "refresh-icon") do %>
+          <%= button_tag(type: "submit", title: "Update Quantity", data: {tooltip: ""}, class: "refresh-icon") do %>
             <i class="fi-refresh"></i>
           <% end %>
 
-          <%= link_to '<i class="fi-trash"></i>'.html_safe, cart_item_path(cart_item.id), method: :delete, title: "Delete Item", data: {tooltip: true} %>
+          <%= link_to '<i class="fi-trash"></i>'.html_safe, cart_item_path(cart_item.id), method: :delete, title: "Delete Item", data: {tooltip: ""} %>
         <% end %>
         </td>
 

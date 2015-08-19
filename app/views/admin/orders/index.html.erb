@@ -1,9 +1,9 @@
-<h3>CUSTOMER ORDER</h3>
+<h3>CUSTOMER ORDERS</h3>
 
 <% @orders.each do |order| %>
   <ul class="accordion" data-accordion>
     <li class="accordion-navigation">
-      <a class="order-title" href="#panel<%= order.id %>"><%= order.created_at %><br>TOTAL COST:&nbsp;&#36;<%= order.total_price %><br><%= order.user.email_address %><br><%= order.status %></a>
+      <a class="order-title" href="#panel<%= order.id %>"><%= order.created_at.strftime("%d %b. %Y") %><br>Status:&nbsp;<%= order.status %><br>TOTAL COST:&nbsp;&#36;<%= "%.2f" % order.total_price %></a>
       <div id="panel<%= order.id %>" class="content">
 
         <table class="responsive">
