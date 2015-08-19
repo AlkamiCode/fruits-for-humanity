@@ -50,12 +50,15 @@ h3 {
 .card-section {
   border-bottom: 1px solid orange;
   border-radius: 5%;
-  p {
-    font-family: $georgia-font;
-  }
 }
 
-h5 {
+p {
+  font-family: $georgia-font;
+  height: 12em;
+  overflow: scroll;
+}
+
+h6 {
   font-family: $georgia-font;
 }
 
@@ -70,6 +73,19 @@ h5 {
 select#quantity {
   width: initial;
 }
+
+/* scroll bars */
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
 
 /*category-index-page*/
 
