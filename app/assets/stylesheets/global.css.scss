@@ -132,6 +132,7 @@ img.cat_image, img.item_image {
   height: 213px;
   width: 100%;
   opacity: .9;
+  border-radius: 3%;
 }
 
 .column + .column:last-child,
@@ -149,6 +150,7 @@ img.cat_image, img.item_image {
 
 img.medium-12.columns.show.for.small {
   opacity: .9;
+  border-radius: 3%;
 }
 
 /*nav-bar*/

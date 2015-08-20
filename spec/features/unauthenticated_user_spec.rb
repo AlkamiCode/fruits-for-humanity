@@ -130,7 +130,7 @@ RSpec.feature "the unauthenticated user" do
     expect(page).to_not have_content("Logout")
   end
 
-  scenario "after user registers items are still in cart" do
+  scenario "adds items to cart, registers, and items are still magically there" do
     visit category_path(category.id)
     add_to_cart("4")
 
@@ -141,5 +141,17 @@ RSpec.feature "the unauthenticated user" do
     visit cart_path
 
     expect(page).to have_content(item.title)
+  end
+
+  scenario "receives email after successfully registering" do
+    visit category_path(category.id)
+
+    within ("#RegisterModal") do
+      fill_in "E-mail",   with: "dmitryiscool@gmail.com"
+      fill_in "Username", with: "dmitry"
+      fill_in "Password", with: "rocks"
+      click_button "Create Account"
+    end
+    # still working on this
   end
 end
