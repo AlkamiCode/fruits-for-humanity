@@ -22,6 +22,17 @@ a.button.round.tiny {
   background-color: orange;
 }
 
+.logo-text-link {
+  font-family: 'Lily Script One', cursive;
+  font-size: 1.7em;
+}
+
+.hidden_input_field {
+  display: none;
+}
+
+/* Flash Alerts */
+
 .alert-box {
   text-align: center;
   margin-left: 30%;
@@ -33,13 +44,12 @@ a.button.round.tiny {
   border-color: orange;
 }
 
-.logo-text-link {
-  font-family: 'Lily Script One', cursive;
-  font-size: 1.7em;
-}
+/* upload file buttons */
 
-.hidden_input_field {
-  display: none;
+#item_image, #item_category_image {
+  padding: 10px;
+  margin-left: 30%;
+  margin-top: 10px;
 }
 
 /* tool-tips */

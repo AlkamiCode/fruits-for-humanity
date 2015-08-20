@@ -1,6 +1,5 @@
 class CartItemsController < ApplicationController
   include ActionView::Helpers::TextHelper
-  # skip_before_action :verify_authenticity_token
 
   def create
     item           = Item.find(params[:item_id])
