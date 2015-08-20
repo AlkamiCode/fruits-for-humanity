@@ -21,12 +21,12 @@
     <div class="medium-6 columns">
       <ul class="inline-list right">
         <li><a data-method="delete" href="/logout">Logout</a></li>
-        <li><a href="#">About</a></li>
+        <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius" title="<%= render 'layouts/about_company' %>"><a>About</a></span></li>
         <li><a href="#">Contact</a></li>
           <% if !current_admin? %>
             <li><a href="/user/orders">My Orders</a></li>
           <% end %>
-        <li><%= link_to '<i class="fi-shopping-cart"></i>'.html_safe, cart_path, title: @cart.count_all.to_s + " Items Live Here", data: {tooltip: ""}, :class => "tip-bottom" %></li>
+        <li><%= link_to '<i class="fi-shopping-cart"></i>'.html_safe, cart_path, title: @cart.count_all.to_s + " Items Live Here", data: {tooltip: ""}, :class => "tip-bottom radius" %></li>
       </ul>
     </div>
   </div>
