@@ -11,13 +11,8 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    if @cart.contents.empty?
-      flash[:notice] = "Must Add Item(s) To View Cart Page"
-      redirect_to root_path
-    else
-      @cart_items  = @cart.items
-      @total_price = @cart.total_items_price(@cart_items)
-    end
+    @cart_items  = @cart.items
+    @total_price = @cart.total_items_price(@cart_items)
   end
 
   def update

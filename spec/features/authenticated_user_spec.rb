@@ -1,4 +1,4 @@
-require "rails_helper"
+  require "rails_helper"
 
 RSpec.feature "the authenticated user" do
 
@@ -36,7 +36,6 @@ RSpec.feature "the authenticated user" do
     visit root_path
     page.find(".carts").click
     expect(current_path).to eq(root_path)
-    expect(page).to have_content("Must Add Item(s) To View Cart Page")
   end
 
   scenario "views order details after checking out" do
