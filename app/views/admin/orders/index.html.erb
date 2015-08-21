@@ -6,10 +6,10 @@
       <a class="order-title" href="#panel<%= order.id %>"><%= order.created_at.strftime("%d %b. %Y") %><br>Status:&nbsp;<%= order.status %><br>TOTAL COST:&nbsp;&#36;<%= "%.2f" % order.total_price %></a>
       <div id="panel<%= order.id %>" class="content">
 
-        <table class="responsive">
+        <table>
           <thead>
             <tr>
-              <th>Item Title</th>
+              <th class="iphone_hide">Item Title</th>
               <th>Item ID</th>
               <th>Item Price</th>
               <th>Item Quantity</th>
@@ -19,7 +19,7 @@
           <tbody>
               <tr>
             <% order.order_items.each do |order_item| %>
-                <td><%= order_item.item.title %></td>
+                <td class="iphone_hide"><%= order_item.item.title %></td>
                 <td><%= order_item.item.id %></td>
                 <td><%= order_item.item.price %></td>
                 <td><%= order_item.quantity %></td>

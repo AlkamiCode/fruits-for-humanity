@@ -18,10 +18,10 @@
           </div>
         <% end %>
       <div id="panel<%= order.id %>" class="content">
-        <table class="responsive">
+        <table>
           <thead>
             <tr>
-              <th>Picture</th>
+              <th class="iphone_hide">Picture</th>
               <th>Item Title</th>
               <th>Item Description</th>
               <th>Item Quantity</th>
@@ -31,7 +31,7 @@
           <tbody>
             <tr>
               <% order.order_items.each do |order_item| %>
-                <td rowspan="2"><%= image_tag(order_item.item.image.url, size: "800x800") %></td>
+                <td rowspan="2" class="iphone_hide"><%= image_tag(order_item.item.image.url, size: "800x800") %></td>
                 <td><%= order_item.item.title %></td>
                 <td><%= order_item.item.price %></td>
                 <td><%= order_item.quantity %></td>

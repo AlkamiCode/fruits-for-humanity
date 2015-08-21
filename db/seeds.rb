@@ -25,6 +25,11 @@ class Seed
       item.categories << Category.all[1]
       item.save
     end
+    chocalate_fruit.each do |basket|
+      item = Item.new(basket)
+      item.categories << Category.all[2]
+      item.save
+    end
     puts "#{Item.all.map(&:title).join(', ')} created."
   end
 
@@ -39,13 +44,27 @@ class Seed
   def categories
     [
       "Fruit Baskets",
-      "Dried Fruit & Nuts"
+      "Dried Fruit & Nuts",
+      "Chocalate Fruit"
+    ]
+  end
+
+  def chocalate_fruit
+    [
+      {title: "SummerTime Berries", description: "No treat better announces summer than these festive strawberries!  Harvested at the peak of ripeness, these beautiful fruits are bathed in luxurious milk, white, and dark Belgian chocolates, coated with ribbons of silky confection, and embellished with fun summer-themed candy appliqués.", price: 54.99},
+      {title: "Dark & Milk Berry", description: "A dozen mouth watering berries. The classic treat of over-sized, luscious strawberries that are hand-dipped into baths of rich milk and dark Belgian chocolates, then embellished with a drizzle of silky chocolate confection.", price: 49.99},
+      {title: "Cocoa Cherries", description: "Two dozen chocalate covered cherries. An exquisite treat of twenty-four fresh gourmet cherries that are dipped by hand into rich, silken milk, dark, and white Belgian chocolates and then embellished with elegant ribbons of our signature confection drizzle.", price: 39.99},
+      {title: "White Cocoa Berries", description: "A dozen white chocalae covered berries. No treat is more beautiful than this. Harvested at the peak of ripeness, these oversized fruits are hand-dipped into a bath of our richest, most luxurious imported Belgian white chocolate and elegantly embellished with ribbons of our signature white chocolate confection.", price: 49.99},
+      {title: "Sport Berries", description: "Celebrate summer with these exquisite treats!  We've take 12 of our luxurious, oversized strawberries and hand-dipped each one into baths of our imported Belgian white, dark, and milk chocolates.  Each irresistible fruit is then decorated either with ribbons of our signature silken confection or with sweet sporty candies.", price: 54.99},
+      {title: "Tripple Oreo Cookies", description: "It sounds impossible, but we've made the already delicious Oreo® Cookies even better. We've smothered 12 of them in rich white, milk, and dark Belgian chocolates, then elegantly embellished them with ribbons of a silken confection drizzle.", price: 34.99},
+      {title: "Cocoa Potato Chips", description: "8oz of awesomness. We've made potato chips more irresistible than ever!  Delightfully crisp and dusted with the perfect amount of salt, these elegant ridged chips are submerged into our blissfully smooth milk, white, and dark Belgian chocolates.", price: 34.99},
+      {title: "Cocoa Pears", description: "6 chocolate covered pears. A decadent treat of juicy, tender oversized pears that are carefully hand-dipped into rich, imported white, milk, and dark Belgian chocolates, then elegantly embellished with ribbons of silken chocolate confection.", price: 44.99}
     ]
   end
 
   def dried_fruit
     [
-      {title: "Almond Strawberry Delight", description: "The newest star in our classic line of designer gifts! In a beautiful matte finished box, we've paired our gourmet roasted and salted peanuts with a medley of premium dried fruits for a delectable, guilt-free snack that's sure to be enjoyed.", price: 19.99},
+      {title: "Almond Berry Delight", description: "The newest star in our classic line of designer gifts! In a beautiful matte finished box, we've paired our gourmet roasted and salted peanuts with a medley of premium dried fruits for a delectable, guilt-free snack that's sure to be enjoyed.", price: 19.99},
       {title: "Mendocino Gift Crate", description: "Mendocino County in California is the birthplace to many great products and we have gathered the best in this amazing gift pack. The deliciousness of Mendocino's Cashews, Almonds, Cherry Fruit Cocktail and Strawberry Honey Crunch will leave anyone with a smile. Give this great tasting gift of Mendocino in this classy wooden gift crate and bring the Mendocino county to anyone's doorstep.", price: 37.99},
       {title: "Dried Fruit & Nut Platter", description: "This impressive gift is as pleasing to the eye as it is to the palate! Inside a beautiful gift box are over 2.5 pounds of premium nuts and extra fancy dried fruits that are artfully arranged in an elegant rose pattern. Boasting dried Bing cherries, Angelino plums, and California peaches, this exquisite gift is impossible to resist!", price: 49.99},
       {title: "Naughty And Nice", description: "This stunning display is sure to please every palate, as it boasts an unbeatable combination of irresistible treats! In two separate boxes, your recipient will discover beautiful arrangements of delicious snacks, both indulgent and healthy. Complete with sinful handcrafted truffles, extra-fancy dried fruits, and an assortment of premium nuts, this exquisite arrangement makes the perfect gift at any occasion!", price: 79.99},

@@ -10,6 +10,21 @@ a {
   }
 }
 
+.logo-text-link {
+  font-family: 'Lily Script One', cursive;
+  font-size: 1.7em;
+}
+
+.hidden_input_field {
+  display: none;
+}
+
+.row {
+  text-align: center;
+}
+
+/* admin sass */
+
 a.admin-logo {
   color: orange;
   font-weight: bold;
@@ -18,17 +33,7 @@ a.admin-logo {
 
 a.button.round.tiny {
   margin-top: 5%;
-  margin-left: 35%;
   background-color: orange;
-}
-
-.logo-text-link {
-  font-family: 'Lily Script One', cursive;
-  font-size: 1.7em;
-}
-
-.hidden_input_field {
-  display: none;
 }
 
 /* Flash Alerts */
@@ -130,7 +135,6 @@ select#quantity {
 
 img.cat_image, img.item_image {
   height: 213px;
-  width: 100%;
   opacity: .9;
   border-radius: 3%;
 }
