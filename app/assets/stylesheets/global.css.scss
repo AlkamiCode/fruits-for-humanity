@@ -39,14 +39,20 @@ a.button.round.tiny {
 /* Flash Alerts */
 
 .alert-box {
+  top: 40px;
   text-align: center;
-  margin-left: 30%;
-  margin-right: 30%;
 }
 
 .alert-box.success {
   background-color: orange;
   border-color: orange;
+}
+
+.flash-puppies {
+  z-index: 3;
+  position: absolute;
+  width: 80%;
+  margin-left: 10%;
 }
 
 /* upload file buttons */
