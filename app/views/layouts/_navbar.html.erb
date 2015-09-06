@@ -48,7 +48,7 @@
     <div class="medium-5 columns">
       <ul class="inline-list right">
         <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius" title="<%= render 'layouts/about_company' %>"><a>About</a></span></li>
-        <li><a href="#" onclick="this.style.color='orange'">Contact</a></li>
+        <li><a href="/notifications" data-reveal-id="NotificationModal" onclick="this.style.color='orange'">Contact</a></li>
         <li><a href="/users" data-reveal-id="RegisterModal">Register</a></li>
         <li><a href="/login" data-reveal-id="LoginModal">Login</a></li>
         <% if @cart.contents.empty? %>
@@ -62,3 +62,4 @@
 <% end %>
 
 <%= render "layouts/login_register_modals" %>
+<%= render "layouts/notification_email_modal" %>
