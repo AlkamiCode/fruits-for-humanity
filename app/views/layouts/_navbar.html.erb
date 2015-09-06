@@ -14,8 +14,11 @@
   </div>
 <% elsif current_user %>
   <div class="row navbar">
-    <div class="medium-6 columns">
+    <div class="medium-5 columns">
       <%= link_to "Fruits For Humanity", root_path, class: "logo-text-link left" %>
+    </div>
+    <div class="medium-1 columns">
+      <a href="/"><%= image_tag("apple-icon-32-px-orange.png", id: "apple-icon") %></a>
     </div>
 
     <div class="medium-6 columns">
