@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete "/cart/destroy", to: "carts#delete"
 
   resources :users, only: [:create]
-  resources :noticifications, only: [:create, :show]
+  resources :notifications, only: [:create]
 
   namespace :user do
     resources :orders, only: [:create, :index]

@@ -1,10 +1,9 @@
 class NotificationsController < ApplicationController
-  def show
-  end
-
   def create
-    NotificationsMailer.contact(email_params).deliver_now
-    redirect_to :back, notice: "Email Sent!"
+    binding.pry
+    NotificationsMailer.contact(params[:notification]).deliver_now
+    flash[:notice] = "Thanks For Sending Us An Email!"
+    redirect_to :back
   end
 
   private

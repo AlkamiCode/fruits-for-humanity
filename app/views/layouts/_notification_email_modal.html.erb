@@ -1,9 +1,9 @@
 <div id="NotificationModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-    <%= form_for "/notifications" do |f| %>
-        <%= f.email_field :email_address, label: "E-mail" %>
-        <%= f.text_field :name, label: "Name"  %>
-        <%= f.text_field :message %>
-        <%= f.submit "Send Email" %>
+    <%= form_for(:notification, url: notifications_path) do |f| %>
+      <%= f.email_field :email_address, label: "E-mail" %>
+      <%= f.text_field :name, label: "Name"  %>
+      <%= f.text_field :message %>
+      <%= f.submit "Send Email" %>
     <% end %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
