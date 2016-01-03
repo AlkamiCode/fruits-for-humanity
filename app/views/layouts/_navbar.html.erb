@@ -25,7 +25,7 @@
       <ul class="inline-list right">
         <li><a href="/notifications" data-reveal-id="NotificationModal">Contact</a></li>
         <li><a data-method="delete" href="/logout">Logout</a></li>
-        <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius" title="<%= render 'layouts/about_company' %>"><a>About</a></span></li>
+        <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius" title="Fruits For Humanity is a non-profit organization. All proceeds go to charities that feed the hungry."><a>About</a></span></li>
           <% if !current_admin? %>
             <li><a href="/user/orders">My Orders</a></li>
           <% end %>
@@ -47,11 +47,11 @@
     </div>
     <div class="medium-5 columns">
       <ul class="inline-list right">
-        <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius" title="<%= render 'layouts/about_company' %>"><a>About</a></span></li>
+        <li><span data-tooltip aria-haspopup="true" class="has-tip tip-bottom radius" title="Fruits For Humanity is a non-profit organization. All proceeds go to charities that feed the hungry."><a>About</a></span></li>
         <li><a href="/users" data-reveal-id="RegisterModal">Register</a></li>
         <li><a href="/login" data-reveal-id="LoginModal">Login</a></li>
         <% if @cart.contents.empty? %>
-          <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius carts" title="Your Cart Is Empty"><a><i class="fi-shopping-cart"></i></a></span></li>
+          <li><span data-tooltip aria-haspopup="true" class="has-tip tip-bottom radius carts" title="Your Cart Is Empty"><a><i class="fi-shopping-cart"></i></a></span></li>
         <% else %>
           <li><%= link_to '<i class="fi-shopping-cart"></i>'.html_safe, cart_path, title: @cart.count_all.to_s + " Items Live Here", data: {tooltip: ""}, :class => "tip-bottom radius carts" %></li>
         <% end %>
