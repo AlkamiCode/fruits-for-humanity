@@ -130,13 +130,18 @@ select#quantity {
 }
 
 .text_title {
-  display: none;
+  // display: none;
   position: absolute;
   top: 40%;
   width: 90%;
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.category_title_text {
+  color: white;
+  text-shadow: -3px 3px 0 black;
 }
 
 img.cat_image, img.item_image {
@@ -270,6 +275,7 @@ input.small.radius.success.button {
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
+  background-position: center;
   height: 60vh;
   max-width: 100%;
 }
@@ -287,9 +293,21 @@ input.small.radius.success.button {
 }
 
 /* Mobile */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
   #banner-image {
     background-image: image-url("giv-rasberries-mobile.jpg");
     background-position: center;
+  }
+
+  .row.navbar {
+    display: flex;
+  }
+
+  .logo-text-link {
+    font-size: 1.3em;
+  }
+
+  #apple-icon {
+    margin-top: 30px;
   }
 }

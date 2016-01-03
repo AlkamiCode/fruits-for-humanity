@@ -9,7 +9,7 @@
       <div class="medium-4 columns image_rapper">
         <%= image_tag(category.image.url, class: "cat_image") %>
 
-        <div class="text_title"><%= link_to category.name, category_path(category.id) %>
+        <div class="text_title"><%= link_to category.name, category_path(category.id), class: "category_title_text" %>
         </div>
       </div>
     <% end %>
