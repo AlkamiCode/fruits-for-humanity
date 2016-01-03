@@ -261,6 +261,19 @@ input.small.radius.success.button {
   background-color: orange;
 }
 
+/* BANNER */
+
+#banner-image {
+  background-image: image-url("giv-rasberries.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  height: 60vh;
+  max-width: 100%;
+}
+
 @media only screen and (min-width: 1000px) {
   #RegisterModal, #LoginModal, #AdminAddsItemModal, #Update-item, #NotificationModal {
     width: 40%;
@@ -274,7 +287,9 @@ input.small.radius.success.button {
 }
 
 /* Mobile */
-@media only screen and (min-width: 800px) {
-  #RegisterModal, #LoginModal {
+@media only screen and (max-width: 900px) {
+  #banner-image {
+    background-image: image-url("giv-rasberries-mobile.jpg");
+    background-position: center;
   }
 }
