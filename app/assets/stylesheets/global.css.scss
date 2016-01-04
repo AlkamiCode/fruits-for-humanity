@@ -147,7 +147,7 @@ select#quantity {
 img.cat_image, img.item_image {
   height: 213px;
   opacity: .9;
-  border-radius: 3%;
+  width: 100%;
 }
 
 .column + .column:last-child,
@@ -278,6 +278,7 @@ input.small.radius.success.button {
   background-position: center;
   height: 60vh;
   max-width: 100%;
+  opacity: .9;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -300,7 +301,7 @@ input.small.radius.success.button {
   }
 
   .row.navbar {
-    display: flex;
+    // display: flex;
   }
 
   .logo-text-link {
@@ -308,10 +309,14 @@ input.small.radius.success.button {
   }
 
   #apple-icon {
-    margin-top: 30px;
+    margin-top: 0;
   }
 
   .inline-list.right {
     font-size: large;
+  }
+
+  .left, .right {
+    float: none !important;
   }
 }
