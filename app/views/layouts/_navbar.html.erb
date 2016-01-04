@@ -30,9 +30,9 @@
             <li><a href="/user/orders">My Orders</a></li>
           <% end %>
         <% if @cart.contents.empty? %>
-          <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius carts" data-options="disable_for_touch:true" title="Your Cart Is Empty"><a><i class="fi-shopping-cart"></i></a></span></li>
+          <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius carts" title="Your Cart Is Empty"><a><i class="fi-shopping-cart"></i></a></span></li>
         <% else %>
-          <li><%= link_to '<i class="fi-shopping-cart"></i>'.html_safe, cart_path, title: @cart.count_all.to_s + " Items Live Here", data: {tooltip: ""}, :class => "tip-bottom radius carts", data: {tooltip: "", disable_for_touch:true} %></li>
+          <li><%= link_to '<i class="fi-shopping-cart"></i>'.html_safe, cart_path, title: @cart.count_all.to_s + " Items Live Here", data: {tooltip: ""}, :class => "tip-bottom radius carts" %></li>
         <% end %>
       </ul>
     </div>
@@ -51,7 +51,7 @@
         <li><a href="/users" data-reveal-id="RegisterModal">Register</a></li>
         <li><a href="/login" data-reveal-id="LoginModal">Login</a></li>
         <% if @cart.contents.empty? %>
-          <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius carts" data-options="disable_for_touch:true" title="Your Cart Is Empty"><i class="fi-shopping-cart"></i></span></li>
+          <li><span data-tooltip aria-haspopup="true" class="tip-bottom radius carts" title="Your Cart Is Empty"><i class="fi-shopping-cart"></i></span></li>
         <% else %>
           <li><%= link_to '<i class="fi-shopping-cart"></i>'.html_safe, cart_path, title: @cart.count_all.to_s + " Item(s)", data: {tooltip: ""}, :class => "tip-bottom radius carts" %></li>
         <% end %>
