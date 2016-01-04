@@ -147,7 +147,6 @@ select#quantity {
 img.cat_image, img.item_image {
   height: 213px;
   opacity: .9;
-  width: 100%;
 }
 
 .column + .column:last-child,
@@ -318,5 +317,9 @@ input.small.radius.success.button {
 
   .left, .right {
     float: none !important;
+  }
+
+  .fi-trash {
+    font-size: medium;
   }
 }
