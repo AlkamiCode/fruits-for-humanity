@@ -168,6 +168,10 @@ img.medium-12.columns.show.for.small {
   height: 60vh;
 }
 
+hr {
+  border-width: 3px;
+}
+
 /*nav-bar*/
 
 ul.inline-list {
@@ -236,6 +240,7 @@ button, .button {
 
 a.order-title {
   text-align: center;
+  margin-right: 2%;
   &:hover {
     color: orange;
   }
