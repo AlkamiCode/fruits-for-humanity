@@ -302,6 +302,11 @@ input.small.radius.success.button {
   #banner-image {
     background-image: image-url("giv-rasberries-mobile.jpg");
     background-position: center;
+    display: none;
+  }
+
+  hr {
+    display: none;
   }
 
   .logo-text-link {
